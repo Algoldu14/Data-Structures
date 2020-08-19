@@ -10,28 +10,28 @@ using namespace std;
 
 StackNode::StackNode(int stackElem)
 {
-    this -> next = nullptr;
-    this -> element = stackElem;
+    this->next = nullptr;
+    this->element = stackElem;
 }
 
 //____________Acccss Methods_______________
 
-void StackNode::setNext(StackNode* stackNext)
+void StackNode::setNext(StackNode *stackNext)
 {
-    this -> next = stackNext;
+    this->next = stackNext;
 }
 
 void StackNode::setElement(int stackElem)
 {
-    this -> element = stackElem;
+    this->element = stackElem;
 }
 
-StackNode* StackNode::getNext()
+StackNode *StackNode::getNext()
 {
-    return this -> element;
+    return this->element;
 }
 
 int StackNode::getElement()
 {
-    return this -> element;
+    return this->element;
 }

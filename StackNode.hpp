@@ -20,12 +20,11 @@ public:
 
     //Access methods
 
-    void setNext(StackNode* stackNext);
+    void setNext(StackNode *stackNext);
     void setElement(int stackElem);
 
-    StackNode* getNext();
+    StackNode *getNext();
     int getElement();
-
 };
 
 #endif //STACKNODE_HPP
