@@ -28,4 +28,4 @@ public:
 
 };
 
-#endif STACKNODE_HPP
+#endif //STACKNODE_HPP
