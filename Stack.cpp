@@ -63,7 +63,7 @@ void Stack::makeNull() //Makes the stack empty by making pop intil is empty
     }
 }
 
-void Stack::isEmpty() //Checks if the stack is empty
+bool Stack::isEmpty() //Checks if the stack is empty
 {
     return this->top == nullptr;
 }
