@@ -15,7 +15,8 @@ class CoreLogic
 {
 
 private:
-    
+    Queue mmrQueue1, mmrQueue2;
+
 public:
     //Cosntructor and destructor
     CoreLogic() {}
@@ -23,8 +24,8 @@ public:
 
     //Methods
 
-    char MMR(){} //The algorithm to assing a new user
-
+    void createQMMR(){}
+    char MMR() {} //The algorithm to assing a new user
 };
 
 #endif //CORELOGIC_HPP
