@@ -13,6 +13,7 @@ class QueueNode
 private:
     QueueNode *next;
     char queueData;
+    friend class Queue;
 
 public:
     //Cosntructor methods

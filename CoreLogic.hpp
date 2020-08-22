@@ -16,6 +16,9 @@ class CoreLogic
 
 private:
     Queue mmrQueue1, mmrQueue2;
+    friend class Queue;
+    friend class Stack;
+    friend class User;
 
 public:
     //Cosntructor and destructor
