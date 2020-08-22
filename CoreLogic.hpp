@@ -19,6 +19,7 @@ private:
     friend class Queue;
     friend class Stack;
     friend class User;
+    friend class List;
 
 public:
     //Cosntructor and destructor
