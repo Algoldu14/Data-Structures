@@ -11,7 +11,7 @@ class StackNode
 {
 private:
     StackNode *next; //Pointer to the next StackNode
-    int element;     //Pointer to the next element of the stack
+    int element;     //The element of the stackNode
     friend class Stack;
 public:
     //Constructors

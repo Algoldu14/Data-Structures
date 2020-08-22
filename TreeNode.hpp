@@ -21,5 +21,6 @@ public:
     ~TreeNode();
     User getUser();
 };
+typedef TreeNode* tnode;
 
 #endif //TREENODE_HPP

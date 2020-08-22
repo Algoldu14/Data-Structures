@@ -2,21 +2,21 @@ CC= g++
 CFLAGS= -Wall -g
 
 ejecutable: main.o CoreLogic.o FO.o Interface.o List.o ListNode.o Queue.o QueueNode.o Stack.o StackNode.o
-	$(CC) $(CFLAGS) -o ejecutale main.o CoreLogic.o FO.o Interface.o List.o ListNode.o Queue.o QueueNode.o Stack.o StackNode.o
+	$(CC) $(CFLAGS) -o ejecutable main.o CoreLogic.o FO.o Interface.o List.o ListNode.o Queue.o QueueNode.o Stack.o StackNode.o
 
 main.o: main.cpp
 	$(CC) $(CFLAGS) main.cpp
 
-CoreLogic.o: CoreLogic.cpp CoreLogic.hpp FO.hpp List.hpp Queue.hpp Stack.hpp
+CoreLogic.o: CoreLogic.cpp CoreLogic.hpp User.hpp List.hpp Queue.hpp Stack.hpp Tree.hpp
 	$(CC) $(CFLAGS) CoreLogic.cpp 			
 
 Interface.o: Interface.cpp Interface.hpp CoreLogic.hpp
 	$(CC) $(CFLAGS) Interface.cpp
 
-FO.o: FO.cpp FO.hpp
-	$(CC) $(CFLAGS) FO.cpp
+User.o: User.cpp User.hpp
+	$(CC) $(CFLAGS) User.cpp
 
-List.o: List.cpp List.hpp StackNode.hpp
+List.o: List.cpp List.hpp User.hpp
 	$(CC) $(CFLAGS) List.cpp
 
 ListNode.o: ListNode.cpp ListNode.hpp
@@ -33,8 +33,6 @@ Stack.o: Stack.cpp Stack.hpp StackNode.hpp
 
 StackNode.o: StackNode.cpp StackNode.hpp
 	$(CC) $(CFLAGS) StackNode.cpp
-
-
 
 .PHONY: clean
 clean:

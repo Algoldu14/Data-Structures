@@ -28,7 +28,7 @@ void StackNode::setElement(int stackElem)
 
 StackNode *StackNode::getNext()
 {
-    return this->element;
+    return this->next;
 }
 
 int StackNode::getElement()
