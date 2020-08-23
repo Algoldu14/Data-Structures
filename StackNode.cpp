@@ -8,7 +8,7 @@ using namespace std;
 
 //____________Cosntructors_______________
 
-StackNode::StackNode(int stackElem)
+StackNode::StackNode(User stackElem)
 {
     this->next = nullptr;
     this->element = stackElem;
@@ -21,7 +21,7 @@ void StackNode::setNext(StackNode *stackNext)
     this->next = stackNext;
 }
 
-void StackNode::setElement(int stackElem)
+void StackNode::setElement(User stackElem)
 {
     this->element = stackElem;
 }
@@ -31,7 +31,7 @@ StackNode *StackNode::getNext()
     return this->next;
 }
 
-int StackNode::getElement()
+User StackNode::getElement()
 {
     return this->element;
 }

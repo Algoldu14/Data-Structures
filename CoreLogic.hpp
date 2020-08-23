@@ -30,6 +30,7 @@ public:
 
     void createQMMR(){}
     char MMR() {} //The algorithm to assing a new user
+    int generateUsers(){}
 };
 
 #endif //CORELOGIC_HPP

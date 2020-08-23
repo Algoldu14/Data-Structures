@@ -5,6 +5,7 @@
 #include "Queue.hpp"
 #include "Stack.hpp"
 #include "User.hpp"
+#include "List.hpp"
 #include "CoreLogic.hpp"
 #include <iostream>
 using namespace std;
@@ -68,4 +69,16 @@ void CoreLogic::createQMMR()
         this->mmrQueue2.Enqueue(ZtoA[i]);
         cout << "Primera letra de la Q2:", ZtoA[i], "\n";
     }
+}
+
+int CoreLogic::generateUsers()
+{
+
+    for (int i = 0; i < rand()%((50000 - 10000) + 1); i++) //Generates users
+    {
+        int phoneN = rand()%((999999999 - 100000000) + 1); //Random Number between 999999999 and 100000000
+        
+    }
+    
+    
 }

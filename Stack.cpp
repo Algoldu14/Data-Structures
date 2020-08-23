@@ -24,7 +24,7 @@ StackNode *Stack::getTop()
 
 //____________ADT Methods_______________
 
-void Stack::Push(int stackElem) // Puts the introduced element at the top of the stack.
+void Stack::Push(User stackElem) // Puts the introduced element at the top of the stack.
 {
     //Create the new element to be added
     StackNode *newElem = new StackNode(stackElem);
@@ -41,10 +41,10 @@ void Stack::Push(int stackElem) // Puts the introduced element at the top of the
     }
 }
 
-int Stack::Pop() //Removes the top element from the stack and return it. If the stack is empty, retunr null
+User Stack::Pop() //Removes the top element from the stack and return it. If the stack is empty, retunr null
 {
     StackNode *removed = this->top;
-    int result;
+    User result;
 
     if (this->top != nullptr)
     {

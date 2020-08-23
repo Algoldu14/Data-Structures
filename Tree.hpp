@@ -12,7 +12,7 @@ private:
     tnode root;
 
 public:
-    Tree();
+    Tree(tnode root);
     ~Tree();
     void preOrder(tnode a);
     void postOrder(tnode b);
