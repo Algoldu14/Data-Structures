@@ -19,8 +19,8 @@ public:
     ~Stack();
 
     //ADT Methods
-    void Push(User stackElem); //Push the element into the stack
-    User Pop();                //Removes the top element of the stack
+    void Push(int stackElem); //Push the element into the stack
+    int Pop();                //Removes the top element of the stack
     void makeNull();          //Makes the stack empty
     bool isEmpty();           //Checks if the stack is empty
     StackNode *getTop();      //Get the top of the stack

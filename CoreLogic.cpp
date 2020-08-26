@@ -73,6 +73,8 @@ void CoreLogic::createQMMR()
 
 int CoreLogic::generateUsers()
 {
+    int phone55Counter, userCounter = 0;
+    //We generate the fisrst user to be the root of the tree
     int phoneN = rand() % ((999999999 - 100000000) + 1); //Random Number between 100000000 and 999999999
     User newU;
     newU.setID(0); //First ID
@@ -83,12 +85,20 @@ int CoreLogic::generateUsers()
 
     for (int i = 1; i < rand() % ((50000 - 10000) + 1); i++) //Generates the rest of the users
     {
-        int phoneN = rand() % ((999999999 - 100000000) + 1); //Random Number between 100000000 and 999999999
+        int phoneN = rand() % ((999999999 - 100000000) + 1); 
         User newU;
         newU.setID(i);
         newU.setPhoneNumber(phoneN);
         newU.setRoom(MMR());
         this->userTree.insert(this->userTree.getRoot(), newU);
+        int first3 = (int)(phoneN / 1000000); //Take the first 3 digits of the phone number
+        if (first3 == 555)
+        {
+            this->phones555.Push(phoneN);
+            phone55Counter++;
+        }
+        userCounter = i; //Se puede optimizar para que solo se guarde al final
     }
-    return 0; //Not yet implemented, returns the number of phone numbers that starts with 555
+    cout << "The amount of users generated is: " << userCounter << endl;
+    return phone55Counter; //Not yet implemented, returns the number of phone numbers that starts with 555
 }

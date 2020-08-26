@@ -12,21 +12,21 @@ class StackNode
 {
 private:
     StackNode *next; //Pointer to the next StackNode
-    User element;     //The element of the stackNode
+    int element;     //The element of the stackNode
     friend class Stack;
 public:
     //Constructors
 
-    StackNode(User stackElem);
+    StackNode(int stackElem);
     ~StackNode();
 
     //Access methods
 
     void setNext(StackNode *stackNext);
-    void setElement(User stackElem);
+    void setElement(int stackElem);
 
     StackNode *getNext();
-    User getElement();
+    int getElement();
 };
 
 #endif //STACKNODE_HPP

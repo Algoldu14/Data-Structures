@@ -18,6 +18,7 @@ class CoreLogic
 private:
     Queue mmrQueue1, mmrQueue2;
     Tree userTree;
+    Stack phones555;
     friend class Queue;
     friend class Stack;
     friend class User;

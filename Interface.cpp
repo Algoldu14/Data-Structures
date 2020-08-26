@@ -36,9 +36,9 @@ void Interface::startInterface()
         switch (option)
         {
         case 'A':
-
+            coreLogic.createQMMR();
+            cout << "The number of 555 phones are: " << coreLogic.generateUsers() << endl;
             break;
-
         case 'B':
 
             break;
