@@ -13,10 +13,12 @@ private:
 
 public:
     Tree(tnode root);
+    Tree();
     ~Tree();
     void preOrder(tnode a);
     void postOrder(tnode b);
     tnode getRoot();
+    void setRoot(tnode root);
     tnode getSon(tnode b, int a);
     void insert(tnode b, User u);
     bool isEmpty();

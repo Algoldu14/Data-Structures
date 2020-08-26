@@ -8,6 +8,7 @@
 #include "Queue.hpp"
 #include "Stack.hpp"
 #include "User.hpp"
+#include "Tree.hpp"
 #include <iostream>
 using namespace std;
 
@@ -16,6 +17,7 @@ class CoreLogic
 
 private:
     Queue mmrQueue1, mmrQueue2;
+    Tree userTree;
     friend class Queue;
     friend class Stack;
     friend class User;
