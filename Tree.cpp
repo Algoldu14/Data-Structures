@@ -36,7 +36,7 @@ tnode Tree::getSon(tnode b, int a) //If 0 is inserted, it returns the left son
 
 void Tree::insert(tnode r, User user)
 {
-    if (r->getUser().getPhoneNumber().compare(user.getPhoneNumber()) > 0)
+    if (r->user.getPhoneNumber().compare(user.getPhoneNumber()) > 0)
     {
         if (r->Lson == nullptr)
         {
@@ -61,4 +61,3 @@ void Tree::insert(tnode r, User user)
         }
     }
 }
-
