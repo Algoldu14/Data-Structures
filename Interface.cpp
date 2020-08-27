@@ -52,7 +52,6 @@ void Interface::startInterface()
             break;
 
         case 'S':
-
             cout << "\n\tLeaving the program...\n";
             break;
 

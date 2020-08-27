@@ -21,7 +21,7 @@ char CoreLogic::MMR()
     int r = rand() % 11; //Generates a random number between 1 and 10
     int r2 = rand() % 11;
     //int cont1, cont2 = 0;
-    char aux = NULL;
+    char aux;
     if (r < 6) //The 60%
     {
         aux = this->mmrQueue2.Dequeue(); //Dequeues from the second queue
@@ -100,5 +100,5 @@ int CoreLogic::generateUsers()
         userCounter = i; //Se puede optimizar para que solo se guarde al final
     }
     cout << "The amount of users generated is: " << userCounter << endl;
-    return phone55Counter; //Not yet implemented, returns the number of phone numbers that starts with 555
+    return phone55Counter; 
 }
