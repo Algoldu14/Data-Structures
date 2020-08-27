@@ -4,19 +4,19 @@
 
 #ifndef INTERFACE_HPP
 #define INTERFACE_HPP
-
 #include "CoreLogic.hpp"
+
 class Interface
 {
 private:
     friend class CoreLogic;
 
 public:
-    void startInterface();
-
     Interface();
 
     ~Interface();
+    
+    void startInterface();
 };
 
 #endif //INTERFACE_HPP

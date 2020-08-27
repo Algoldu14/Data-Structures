@@ -3,7 +3,6 @@
 //
 
 #include "Interface.hpp"
-#include "CoreLogic.hpp"
 #include <iostream>
 
 using namespace std;
@@ -17,7 +16,7 @@ void Interface::startInterface()
 {
     CoreLogic coreLogic;
     char option;
-    char plate[7] = "";
+    int phone[8];
     do
     {
         cout << "\n\t---------------------------------------------------------\n";
