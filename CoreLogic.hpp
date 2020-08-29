@@ -8,6 +8,7 @@
 #include "Queue.hpp"
 #include "Stack.hpp"
 #include "User.hpp"
+#include "List.hpp"
 #include "Tree.hpp"
 #include <iostream>
 using namespace std;
@@ -19,6 +20,8 @@ private:
     Queue mmrQueue1, mmrQueue2;
     Tree userTree;
     Stack phones555;
+    List listPhones;
+
     friend class Queue;
     friend class Stack;
     friend class User;
@@ -31,9 +34,10 @@ public:
 
     //Methods
 
-    void createQMMR(){}
+    void createQMMR() {}
     char MMR() {} //The algorithm to assing a new user
-    int generateUsers(){}
+    int generateUsers() {}
+    char findPhoneNUmber(int phone);
 };
 
 #endif //CORELOGIC_HPP

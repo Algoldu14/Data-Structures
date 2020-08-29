@@ -40,30 +40,30 @@ tnode Tree::getSon(tnode b, int a) //If 0 is inserted, it returns the left son
     }
 }
 
-void Tree::insert(tnode r, User user)
+void Tree::insert(tnode root, User user)
 {
-    if (r->user.getPhoneNumber().compare(user.getPhoneNumber()) > 0)
+    if (root->user.getPhoneNumber() - user.getPhoneNumber() > 0)
     {
-        if (r->Lson == nullptr)
+        if (root->Lson == nullptr)
         {
             tnode aux = new TreeNode(user, nullptr, nullptr);
-            r->Lson = aux;
+            root->Lson = aux;
         }
         else
         {
-            insert(r->Lson, user);
+            insert(root->Lson, user);
         }
     }
     else
     {
-        if (r->Rson == nullptr)
+        if (root->Rson == nullptr)
         {
             tnode aux = new TreeNode(user, nullptr, nullptr);
-            r->Rson = aux;
+            root->Rson = aux;
         }
         else
         {
-            insert(r->Rson, user);
+            insert(root->Rson, user);
         }
     }
 }

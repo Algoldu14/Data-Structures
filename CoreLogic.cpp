@@ -90,7 +90,7 @@ int CoreLogic::generateUsers()
         newU.setID(i);
         newU.setPhoneNumber(phoneN);
         newU.setRoom(MMR());
-        this->userTree.insert(this->userTree.getRoot(), newU);
+        this->userTree.insert(this->userTree.getRoot(), newU); //Insert the node in the tree
         int first3 = (int)(phoneN / 1000000); //Take the first 3 digits of the phone number
         if (first3 == 555)
         {
@@ -101,4 +101,9 @@ int CoreLogic::generateUsers()
     }
     cout << "The amount of users generated is: " << userCounter << endl;
     return phone55Counter; 
+}
+
+char findPhoneNUmber(int phone) //Finds the first number that matches with phone
+{
+    
 }
