@@ -85,13 +85,13 @@ int CoreLogic::generateUsers()
 
     for (int i = 1; i < rand() % ((50000 - 10000) + 1); i++) //Generates the rest of the users
     {
-        int phoneN = rand() % ((999999999 - 100000000) + 1); 
+        int phoneN = rand() % ((999999999 - 100000000) + 1);
         User newU;
         newU.setID(i);
         newU.setPhoneNumber(phoneN);
         newU.setRoom(MMR());
         this->userTree.insert(this->userTree.getRoot(), newU); //Insert the node in the tree
-        int first3 = (int)(phoneN / 1000000); //Take the first 3 digits of the phone number
+        int first3 = (int)(phoneN / 1000000);                  //Take the first 3 digits of the phone number
         if (first3 == 555)
         {
             this->phones555.Push(phoneN);
@@ -100,10 +100,38 @@ int CoreLogic::generateUsers()
         userCounter = i; //Se puede optimizar para que solo se guarde al final
     }
     cout << "The amount of users generated is: " << userCounter << endl;
-    return phone55Counter; 
+    return phone55Counter;
 }
 
 char findPhoneNUmber(int phone) //Finds the first number that matches with phone
 {
     
+}
+
+bool theyAreEqual(int phoneN, int phoneU) //Checks if two given numbers are equal phoneU >= phoneN (always)
+{
+    int digitN, digitU;
+    if (phoneN == phoneU)
+    {
+        return true;
+    }
+    else
+    {
+        while (phoneN > 10)
+        {
+            digitN = phoneN % 10;
+            digitU = phoneU % 10;
+
+            if (digitN != digitU)
+            {
+                return false;
+            }
+            else
+            {
+                phoneN = phoneN / 10;
+                phoneU = phoneU / 10;
+            }
+        }
+        return true;
+    }
 }

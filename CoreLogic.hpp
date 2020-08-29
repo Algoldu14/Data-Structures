@@ -34,10 +34,11 @@ public:
 
     //Methods
 
-    void createQMMR() {}
-    char MMR() {} //The algorithm to assing a new user
-    int generateUsers() {}
+    void createQMMR();
+    char MMR(); //The algorithm to assing a new user
+    int generateUsers();
     char findPhoneNUmber(int phone);
+    bool theyAreEqual(int phoneN, int phoneU);
 };
 
 #endif //CORELOGIC_HPP
