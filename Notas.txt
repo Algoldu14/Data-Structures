@@ -1,0 +1,2 @@
+Para la opcion B de la ejecucion:
+Hay que corregir los if para los hijos por si los siguientes hijos son nulos para que no siga.
