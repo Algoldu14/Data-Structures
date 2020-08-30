@@ -37,7 +37,7 @@ public:
     void createQMMR();
     char MMR(); //The algorithm to assing a new user
     int generateUsers();
-    char findPhoneNUmber(int phone);
+    char findPhoneNUmber(int phoneToF, int lenDigi);
     bool theyAreEqual(int phoneN, int phoneU);
 };
 

@@ -103,12 +103,47 @@ int CoreLogic::generateUsers()
     return phone55Counter;
 }
 
-char findPhoneNUmber(int phone) //Finds the first number that matches with phone
+char CoreLogic::findPhoneNUmber(int phoneToF, int lenDigi) //Finds the first number that matches with phone
 {
-    
+    bool found = false;
+    tnode aux = nullptr;
+    aux = this->userTree.getRoot();
+    while (!found)
+    {
+        if (this->theyAreEqual(phoneToF, aux->getUser().getPhoneNumber())) //If the root is the first match
+        {
+            cout << "The phone that matches first with" << phoneToF << "is: " << aux->getUser().getPhoneNumber() << endl;
+            return aux->getUser().getRoom(); //We return the room where the match is maked
+        }
+        else
+        {
+            for (int i = 0; i < 9 - lenDigi; i++)
+            {
+                phoneToF = phoneToF * 10; //Create the complete phone number
+            }
+            if (aux->getUser().getPhoneNumber() - phoneToF > 0)
+            {
+                aux = this->userTree.getSon(aux, 0); //We get the Lson
+
+                for (int i = 0; i < 9 - lenDigi; i++)
+                {
+                    phoneToF = phoneToF / 10; //Reset the phone number
+                }
+            }
+            else
+            {
+                aux = this->userTree.getSon(aux, 1); //We get the Rson
+
+                for (int i = 0; i < 9 - lenDigi; i++)
+                {
+                    phoneToF = phoneToF / 10; //Reset the phone number
+                }
+            }
+        }
+    }
 }
 
-bool theyAreEqual(int phoneN, int phoneU) //Checks if two given numbers are equal phoneU >= phoneN (always)
+bool CoreLogic::theyAreEqual(int phoneN, int phoneU) //Checks if two given numbers are equal || phoneU >= phoneN (always)
 {
     int digitN, digitU;
     if (phoneN == phoneU)
