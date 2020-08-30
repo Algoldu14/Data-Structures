@@ -20,7 +20,6 @@ char CoreLogic::MMR()
 {
     int r = rand() % 11; //Generates a random number between 1 and 10
     int r2 = rand() % 11;
-    //int cont1, cont2 = 0;
     char aux;
     if (r < 6) //The 60%
     {
@@ -79,7 +78,7 @@ int CoreLogic::generateUsers()
     User newU;
     newU.setID(0); //First ID
     newU.setPhoneNumber(phoneN);
-    newU.setRoom(MMR());
+    newU.setRoom(this->MMR());
     tnode aux = new TreeNode(newU, nullptr, nullptr);
     this->userTree.setRoot(aux); //First user
 
@@ -89,7 +88,7 @@ int CoreLogic::generateUsers()
         User newU;
         newU.setID(i);
         newU.setPhoneNumber(phoneN);
-        newU.setRoom(MMR());
+        newU.setRoom(this->MMR());
         this->userTree.insert(this->userTree.getRoot(), newU); //Insert the node in the tree
         int first3 = (int)(phoneN / 1000000);                  //Take the first 3 digits of the phone number
         if (first3 == 555)
