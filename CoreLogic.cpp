@@ -105,12 +105,12 @@ int CoreLogic::generateUsers()
 
 char CoreLogic::findPhoneNUmber(int phoneToF, int lenDigi) //Finds the first number that matches with phone
 {
-    bool found = false;
+    bool finding = true;
     tnode aux = nullptr;
     aux = this->userTree.getRoot();
-    while (!found)
+    while (finding)
     {
-        if (this->theyAreEqual(phoneToF, aux->getUser().getPhoneNumber())) //If the root is the first match
+        if (this->theyAreEqual(phoneToF, aux->getUser().getPhoneNumber())) //If they are equal
         {
             cout << "The phone that matches first with" << phoneToF << "is: " << aux->getUser().getPhoneNumber() << endl;
             return aux->getUser().getRoom(); //We return the room where the match is maked
@@ -123,24 +123,40 @@ char CoreLogic::findPhoneNUmber(int phoneToF, int lenDigi) //Finds the first num
             }
             if (aux->getUser().getPhoneNumber() - phoneToF > 0)
             {
-                aux = this->userTree.getSon(aux, 0); //We get the Lson
-
-                for (int i = 0; i < 9 - lenDigi; i++)
+                if (this->userTree.getSon(aux, 0) != nullptr)
                 {
-                    phoneToF = phoneToF / 10; //Reset the phone number
+                    aux = this->userTree.getSon(aux, 0); //We get the Lson
+
+                    for (int i = 0; i < 9 - lenDigi; i++)
+                    {
+                        phoneToF = phoneToF / 10; //Reset the phone number
+                    }
+                }
+                else
+                {
+                    finding = false;
                 }
             }
             else
             {
-                aux = this->userTree.getSon(aux, 1); //We get the Rson
-
-                for (int i = 0; i < 9 - lenDigi; i++)
+                if (this->userTree.getSon(aux, 1) != nullptr)
                 {
-                    phoneToF = phoneToF / 10; //Reset the phone number
+                    aux = this->userTree.getSon(aux, 1); //We get the Rson
+
+                    for (int i = 0; i < 9 - lenDigi; i++)
+                    {
+                        phoneToF = phoneToF / 10; //Reset the phone number
+                    }
+                }
+                else
+                {
+                    finding = false;
                 }
             }
         }
     }
+    cout << "The phone that matches first with" << phoneToF << "is: NONE" << endl;
+    return 'Null';
 }
 
 bool CoreLogic::theyAreEqual(int phoneN, int phoneU) //Checks if two given numbers are equal || phoneU >= phoneN (always)
