@@ -16,7 +16,6 @@ void Interface::startInterface()
 {
     CoreLogic coreLogic;
     char option;
-    int phone[8];
     do
     {
         cout << "\n\t---------------------------------------------------------\n";

@@ -6,13 +6,13 @@
 
 //____________Cosntructor_______________
 
-User::User(int id, int phoneNumber, char room)
+User::User(int id,int phoneN,char room)
 {
-    this->id = id;
-    this->phoneNumber = phoneNumber;
-    this->room = room;
+	this->id=id;
+	this->phoneNumber = phoneN;
+	this->room = room;
 }
-User::User() {} //Dummy Constructor, no needed
+
 User::~User() {} //Destructor
 
 //____________Getters and Setters__________

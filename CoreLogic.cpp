@@ -13,7 +13,7 @@ using namespace std;
 //___________Costructor______________
 
 CoreLogic::CoreLogic() {}
-CoreLogic::~CoreLogic() {}
+CoreLogic::~CoreLogic(){}
 
 //___________Methods______________
 char CoreLogic::MMR()
@@ -64,9 +64,9 @@ void CoreLogic::createQMMR()
     for (int i = 0; i < 26; i++) //Enqueues the two queues needed for the algorithm
     {
         this->mmrQueue1.Enqueue(AtoZ[i]);
-        cout << "Primera letra de la Q1:", AtoZ[i], "\n";
+        cout << "Primera letra de la Q1:" << AtoZ[i] << "\n";
         this->mmrQueue2.Enqueue(ZtoA[i]);
-        cout << "Primera letra de la Q2:", ZtoA[i], "\n";
+        cout << "Primera letra de la Q2:" << ZtoA[i] << "\n";
     }
 }
 

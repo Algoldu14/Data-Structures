@@ -12,8 +12,8 @@ private:
     char room;
 
 public:
-    User();
-    User(int id, int phoneNumber, char room) {}
+    User(int id, int phoneN, char room) {}
+	User(){}
     ~User() {}
     void setID(int id);
     int getID();
