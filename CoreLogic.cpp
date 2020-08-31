@@ -196,8 +196,8 @@ bool CoreLogic::theyAreEqual(int phoneToF, int phoneU) //Checks if two given num
 
     for (int i = 0; i < 9 - phoneToFS.length(); i++) //Add the needed cer
     {
-        cout << "phoneToFS[i] --------------- " << phoneToFS[i] << endl;
-        cout << "phoneUS[i]   --------------- " << phoneUS[i] << endl;
+        //cout << "phoneToFS[i] --------------- " << phoneToFS[i] << endl;
+        //cout << "phoneUS[i]   --------------- " << phoneUS[i] << endl;
         if (phoneToFS[i] != phoneUS[i])
         {
             coincidence = false;
