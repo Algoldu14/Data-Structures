@@ -3,18 +3,15 @@
 //
 
 #include "QueueNode.h"
-#include <iostream>
-using namespace std;
-
 //_________Cosntructor_________
 
 QueueNode::QueueNode(char queueData)
 {
-    this->queueData = queueData;
+	this->queueData = queueData;
     this->next = nullptr;
 }
 
-QueueNode::~QueueNode() {}
+QueueNode::~QueueNode(){}
 
 //________Access Methods________
 

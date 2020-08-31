@@ -4,8 +4,6 @@
 
 #include "User.h"
 
-//____________Cosntructor_______________
-
 User::User(int id,int phoneN,char room)
 {
 	this->id=id;
@@ -13,7 +11,7 @@ User::User(int id,int phoneN,char room)
 	this->room = room;
 }
 
-User::~User() {} //Destructor
+User::~User(){} //Destructor
 
 //____________Getters and Setters__________
 

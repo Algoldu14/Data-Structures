@@ -2,22 +2,22 @@
 // Created by Álvaro Golbano Durán
 //
 
-#ifndef LISTNODE_HPP
-#define LISTNODE_HPP
-#include "User.hpp"
+#ifndef LISTNODE_H
+#define LISTNODE_H
+#include "User.h"
+
 class ListNode
 {
 private:
     User element;       // Element of the node
     ListNode *previous; // Pointer to the previous node
     ListNode *next;     // Pointer to the next node
-    friend class List;
-
+	
 public:
-    ListNode(User u);
-    ~ListNode();
+	ListNode(User u);
+	~ListNode();
 
-    //Access methods
+	//Access methods
     ListNode *getNext();
     ListNode *getPrevious();
     User getElement();
@@ -27,4 +27,4 @@ public:
     void setElement(User listElem);
 };
 
-#endif //LISTNODE_HPP
+#endif // LISTNODE_H

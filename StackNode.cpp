@@ -3,16 +3,16 @@
 //
 
 #include "StackNode.h"
-#include <iostream>
-using namespace std;
 
-//____________Cosntructors_______________
+//____________Cosntructor and destructor_______________
 
 StackNode::StackNode(int stackElem)
 {
-    this->next = nullptr;
     this->element = stackElem;
+	this->next = nullptr;
 }
+
+StackNode::~StackNode(){}
 
 //____________Acccss Methods_______________
 

@@ -2,17 +2,17 @@
 // Created by Álvaro Golbano Durán
 //
 
+#include "CoreLogic.h"
 #include "Queue.h"
 #include "Stack.h"
 #include "User.h"
 #include "List.h"
-#include "CoreLogic.h"
 #include <iostream>
 using namespace std;
 
-//___________Costructor______________
+//___________Costructor and Destructor_____________
+CoreLogic::CoreLogic(){}
 
-CoreLogic::CoreLogic() {}
 CoreLogic::~CoreLogic(){}
 
 //___________Methods______________

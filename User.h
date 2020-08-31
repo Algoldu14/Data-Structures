@@ -2,25 +2,24 @@
 // Created by Álvaro Golbano Durán
 //
 
-#ifndef USER_HPP
-#define USER_HPP
+#ifndef USER_H
+#define USER_H
 
 class User
 {
 private:
     int id, phoneNumber;
     char room;
-
 public:
-    User(int id, int phoneN, char room) {}
-	User(){}
-    ~User() {}
-    void setID(int id);
+	User(int id, int phoneN, char room);
+	~User();
+	void setID(int id);
     int getID();
     void setPhoneNumber(int phoneNumber);
     int getPhoneNumber();
     void setRoom(char room);
     char getRoom();
+
 };
 
-#endif //USER_HPP
+#endif // USER_H

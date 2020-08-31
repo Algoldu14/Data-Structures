@@ -1,18 +1,17 @@
 //
 // Created by Álvaro Golbano Durán
 //
-#include "ListNode.h"
 
-//_____________Cosntructor______________
+#include "ListNode.h"
 
 ListNode::ListNode(User element)
 {
-    this->element = element;
+	this->element = element;
     this->previous = nullptr;
     this->next = nullptr;
 }
 
-ListNode::~ListNode() {}
+ListNode::~ListNode(){}
 
 //_____________Access Methods____________
 

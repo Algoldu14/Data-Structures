@@ -2,21 +2,18 @@
 // Created by Álvaro Golbano Durán
 //
 
-#ifndef CORELOGIC_HPP
-#define CORELOGIC_HPP
+#ifndef CORELOGIC_H
+#define CORELOGIC_H
 
-#include "Queue.hpp"
-#include "Stack.hpp"
-#include "User.hpp"
-#include "List.hpp"
-#include "Tree.hpp"
-#include <iostream>
-using namespace std;
+#include "Queue.h"
+#include "Stack.h"
+#include "User.h"
+#include "List.h"
+#include "Tree.h"
 
 class CoreLogic
 {
-
-private:
+	private:
     Queue mmrQueue1, mmrQueue2;
     Tree userTree;
     Stack phones555;
@@ -26,19 +23,19 @@ private:
     friend class Stack;
     friend class User;
     friend class List;
-
+	
 public:
-    //Cosntructor and destructor
-    CoreLogic() {}
-    ~CoreLogic() {}
-
-    //Methods
-
+	//Cosntructor and destructor
+	CoreLogic();
+	~CoreLogic();
+	
+	//Methods
     void createQMMR();
     char MMR(); //The algorithm to assing a new user
     int generateUsers();
     char findPhoneNUmber(int phoneToF, int lenDigi);
     bool theyAreEqual(int phoneN, int phoneU);
+
 };
 
-#endif //CORELOGIC_HPP
+#endif // CORELOGIC_H

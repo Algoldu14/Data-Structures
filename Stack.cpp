@@ -3,17 +3,14 @@
 //
 
 #include "Stack.h"
-#include <iostream>
-using namespace std;
 
-//____________Cosntructor_______________
-
+//____________Cosntructor and Destructor_______________
 Stack::Stack()
 {
-    this->top = nullptr;
+	this->top = nullptr;
 }
 
-Stack::~Stack() {} //Destructor
+Stack::~Stack(){}
 
 //___________Access Methods____________
 

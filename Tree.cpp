@@ -2,16 +2,15 @@
 // Created by Álvaro Golbano Durán
 //
 
-//__________Constructor_________
-
 #include "Tree.h"
 
+//__________Constructor_________
 Tree::Tree(tnode root)
 {
-    this->root = root;
+	this->root = root;
 }
-Tree::Tree(){} //Dummy constructor
-Tree::~Tree() {}
+
+Tree::~Tree(){}
 
 bool Tree::isEmpty()
 {

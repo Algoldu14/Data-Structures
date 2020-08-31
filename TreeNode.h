@@ -2,25 +2,22 @@
 // Created by Álvaro Golbano Durán
 //
 
-#ifndef TREENODE_HPP
-#define TREENODE_HPP
-#include "User.hpp"
+#ifndef TREENODE_H
+#define TREENODE_H
+#include "User.h"
 
 class TreeNode
 {
 private:
     User user;
     //Left and Right son:
-    TreeNode *Lson;
-    TreeNode *Rson;
-    friend class Tree;
-    friend class CoreLogic;
-
+    tnode Lson;
+    tnode Rson;
 public:
-    TreeNode(User u, TreeNode *Rson, TreeNode *Lson);
-    ~TreeNode();
-    User getUser();
+	TreeNode(User u, tnode Lson, tnode Rson);
+	~TreeNode();
+	User getUser();
+
 };
 typedef TreeNode* tnode;
-
-#endif //TREENODE_HPP
+#endif // TREENODE_H

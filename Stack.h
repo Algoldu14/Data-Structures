@@ -1,24 +1,21 @@
 //
 // Created by Álvaro Golbano Durán
-//
+// 
 
-#ifndef STACK_HPP
-#define STACK_HPP
-
-#include "StackNode.hpp"
-#include "User.hpp"
-#include <iostream>
-using namespace std;
+#ifndef STACK_H
+#define STACK_H
+#include "StackNode.h"
+#include "User.h"
 
 class Stack
 {
 private:
     StackNode *top; //A pointer to the top of the stack
 public:
-    Stack();
-    ~Stack();
+	Stack();
+	~Stack();
 
-    //ADT Methods
+	//ADT Methods
     void Push(int stackElem); //Push the element into the stack
     int Pop();                //Removes the top element of the stack
     void makeNull();          //Makes the stack empty
@@ -26,4 +23,4 @@ public:
     StackNode *getTop();      //Get the top of the stack
 };
 
-#endif //STACK_HPP
+#endif // STACK_H

@@ -8,15 +8,10 @@
 
 class Interface
 {
-private:
-    friend class CoreLogic;
-
 public:
-    Interface();
-
-    ~Interface();
-    
-    void startInterface();
+	Interface();
+	~Interface();
+	void startInterface();
 };
 
-#endif //INTERFACE_H
+#endif // INTERFACE_H

@@ -2,29 +2,26 @@
 // Created by Álvaro Golbano Durán
 //
 
-#ifndef QUEUENODE_HPP
-#define QUEUENODE_HPP
-
-#include <iostream>
-using namespace std;
+#ifndef QUEUENODE_H
+#define QUEUENODE_H
 
 class QueueNode
 {
-private:
+	private:
     QueueNode *next;
     char queueData;
     friend class Queue;
-
+	
 public:
-    //Cosntructor methods
-    QueueNode(char queueData);
-    ~QueueNode();
+	//Cosntructor methods
+	QueueNode(char queueData);
+	~QueueNode();
 
-    //Access methods
+	//Access methods
     QueueNode *getNext();
     char getContent();
     void setNext(QueueNode *qNext);
     void setContent(char qCont);
 };
 
-#endif //QUEUENODE_HPP
+#endif // QUEUENODE_H

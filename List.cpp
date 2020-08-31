@@ -3,15 +3,17 @@
 //
 
 #include "List.h"
-
 //____________Cosntructor and destructor____________
+
 List::List()
 {
-    this->head = nullptr;
+	this->head = nullptr;
     this->tail = nullptr;
 }
 
-List::~List(){}
+List::~List()
+{
+}
 
 // Inserts the specified value at the specified position.
 // If pos is negative, the value will be inserted at the front.

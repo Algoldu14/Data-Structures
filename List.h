@@ -2,21 +2,20 @@
 // Created by Álvaro Golbano Durán
 //
 
-#ifndef LIST_HPP
-#define LIST_HPP
-#include "ListNode.hpp"
+#ifndef LIST_H
+#define LIST_H
+#include "ListNode.h"
 
 class List
 {
 private:
     ListNode *head;
     ListNode *tail;
-
 public:
-    List();
-    ~List();
-
-    void Insert(User element, int pos); //Inserts a element on the list in a given position
+	List();
+	~List();
+	
+	void Insert(User element, int pos); //Inserts a element on the list in a given position
     void Remove(int pos);               //Removes a element of the list from a given position
     int Locate(User value);             //Locates the place of a element in the list
     User *Retrieve(int pos);            //Remove and return the value at a specified position of the list
@@ -33,6 +32,7 @@ public:
     void RegularRemove(ListNode *current);
     void HeadRemove(ListNode *current);
     void TailRemove(ListNode *current);
+
 };
 
-#endif //LIST_HPP
+#endif // LIST_H

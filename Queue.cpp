@@ -3,18 +3,16 @@
 //
 
 #include "Queue.h"
-#include <iostream>
-using namespace std;
 
 //___________Constructors____________
 
 Queue::Queue()
 {
-    this->front = nullptr;
+	this->front = nullptr;
     this->rear = nullptr;
 }
 
-Queue::~Queue() {}
+Queue::~Queue(){}
 
 //___________ADT Methods____________
 

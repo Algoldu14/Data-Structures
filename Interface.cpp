@@ -3,14 +3,11 @@
 //
 
 #include "Interface.h"
-#include <iostream>
 
-using namespace std;
-//________Constructor_________
+//________Constructor and Destructor_________
+Interface::Interface(){}
 
-Interface::Interface() {}
-
-Interface::~Interface() {}
+Interface::~Interface(){}
 
 void Interface::startInterface()
 {
