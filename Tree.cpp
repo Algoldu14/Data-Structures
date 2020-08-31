@@ -5,7 +5,9 @@
 #include "Tree.h"
 
 //__________Constructor_________
-Tree::Tree(tnode root)
+
+Tree::Tree(){}//Dummy one
+Tree::Tree(TreeNode* root)
 {
 	this->root = root;
 }
@@ -17,52 +19,52 @@ bool Tree::isEmpty()
     return this->root == nullptr;
 }
 
-tnode Tree::getRoot()
+TreeNode* Tree::getRoot()
 {
     return this->root;
 }
 
-void Tree::setRoot(tnode root)
+void Tree::setRoot(TreeNode* root)
 {
     this->root = root;
 }
 
-tnode Tree::getSon(tnode b, int a) //If 0 is inserted, it returns the left son
+TreeNode* Tree::getSon(TreeNode* b, int a) //If 0 is inserted, it returns the left son
 {
     if (a == 0)
     {
-        return b->Lson;
+        return b->getLson();
     }
     else
     {
-        return b->Rson;
+        return b->getRson();
     }
 }
 
-void Tree::insert(tnode root, User user)
+void Tree::insert(TreeNode* root, User user)
 {
-    if (root->user.getPhoneNumber() - user.getPhoneNumber() > 0)
+    if (root->getUser().getPhoneNumber() - user.getPhoneNumber() > 0)
     {
-        if (root->Lson == nullptr)
+        if (root->getLson() == nullptr)
         {
-            tnode aux = new TreeNode(user, nullptr, nullptr);
-            root->Lson = aux;
+            TreeNode* aux = new TreeNode(user, nullptr, nullptr);
+            root->setLson(aux);
         }
         else
         {
-            insert(root->Lson, user);
+            insert(root->getLson(), user);
         }
     }
     else
     {
-        if (root->Rson == nullptr)
+        if (root->getRson() == nullptr)
         {
-            tnode aux = new TreeNode(user, nullptr, nullptr);
-            root->Rson = aux;
+            TreeNode* aux = new TreeNode(user, nullptr, nullptr);
+            root->setRson(aux);
         }
         else
         {
-            insert(root->Rson, user);
+            insert(root->getRson(), user);
         }
     }
 }

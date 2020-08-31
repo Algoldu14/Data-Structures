@@ -73,6 +73,15 @@ void List::Append(User newElement)
     newNode->setPrev(this->tail);
     this->tail = newNode;
 }
+// Add the new node in the position of the current node specified.
+
+void List::Add(ListNode* newNode, ListNode* current)
+{
+    newNode->setNext(current->getNext());
+    newNode->getNext()->getPrevious()->setNext(newNode);
+    newNode->setPrev(current);
+    current->setNext(newNode);
+}
 
 // Inserts the new node at the beginning of the List.
 

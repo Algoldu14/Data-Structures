@@ -4,6 +4,7 @@
 
 #include "User.h"
 
+User::User(){}//Dummy constructor
 User::User(int id,int phoneN,char room)
 {
 	this->id=id;

@@ -5,6 +5,7 @@
 #ifndef LIST_H
 #define LIST_H
 #include "ListNode.h"
+#include "User.h"
 
 class List
 {
@@ -24,14 +25,15 @@ public:
 
     // Auxiliary functions to Insert Function.
     void Append(User newElement);
-    void Add(ListNode *newnode, ListNode *current);
-    void AddStart(ListNode *newNode);
+    void Add(ListNode* newnode, ListNode* current);
+    void AddStart(ListNode* newNode);
 
     // Auxiliary functions to the Remove Function.
     void EmptyRemove();
-    void RegularRemove(ListNode *current);
-    void HeadRemove(ListNode *current);
-    void TailRemove(ListNode *current);
+    void RegularRemove(ListNode* current);
+    void HeadRemove(ListNode* current);
+    void TailRemove(ListNode* current);
+
 
 };
 

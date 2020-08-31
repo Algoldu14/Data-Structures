@@ -3,7 +3,8 @@
 //
 
 #include "Interface.h"
-
+#include <iostream>
+using namespace std;
 //________Constructor and Destructor_________
 Interface::Interface(){}
 
@@ -32,7 +33,10 @@ void Interface::startInterface()
         {
         case 'A':
             coreLogic.createQMMR();
-            cout << "The number of 555 phones are: " << coreLogic.generateUsers() << endl;
+			int* aux;
+			aux = coreLogic.generateUsers();
+            cout << "\n\tThe number of users generated are: " << aux[0] << endl;
+			cout << "\tThe number of 555 phones are: " << aux[1] << endl;
             break;
         case 'B':
             int phoneNumber, phoneNumberAux, counter;

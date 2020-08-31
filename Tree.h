@@ -6,20 +6,22 @@
 #define TREE_H
 #include "TreeNode.h"
 
-private:
-    tnode root;
+
 class Tree
 {
+	private:
+    TreeNode* root;
 public:
-	Tree(tnode root);
+	Tree(TreeNode* root);
+	Tree(); //Dummy constructor
 	~Tree();
 	
-	void preOrder(tnode a);
-    void postOrder(tnode b);
-    tnode getRoot();
-    void setRoot(tnode root);
-    tnode getSon(tnode b, int a);
-    void insert(tnode b, User u);
+	void preOrder(TreeNode* a);
+    void postOrder(TreeNode* b);
+    TreeNode* getRoot();
+    void setRoot(TreeNode* root);
+    TreeNode* getSon(TreeNode* b, int a);
+    void insert(TreeNode* b, User u);
     bool isEmpty();
 
 };

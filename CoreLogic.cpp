@@ -64,27 +64,26 @@ void CoreLogic::createQMMR()
     for (int i = 0; i < 26; i++) //Enqueues the two queues needed for the algorithm
     {
         this->mmrQueue1.Enqueue(AtoZ[i]);
-        cout << "Primera letra de la Q1:" << AtoZ[i] << "\n";
         this->mmrQueue2.Enqueue(ZtoA[i]);
-        cout << "Primera letra de la Q2:" << ZtoA[i] << "\n";
     }
 }
 
-int CoreLogic::generateUsers()
+int* CoreLogic::generateUsers()
 {
     int phone55Counter, userCounter = 0;
+	int* retunArr = new int[2];
     //We generate the fisrst user to be the root of the tree
-    int phoneN = rand() % ((999999999 - 100000000) + 1); //Random Number between 100000000 and 999999999
+    int phoneN = rand() % 899999999 + 100000000 ; //Random Number between 100000000 and 999999999
     User newU;
     newU.setID(0); //First ID
     newU.setPhoneNumber(phoneN);
     newU.setRoom(this->MMR());
-    tnode aux = new TreeNode(newU, nullptr, nullptr);
+    TreeNode* aux = new TreeNode(newU, nullptr, nullptr);
     this->userTree.setRoot(aux); //First user
 
-    for (int i = 1; i < rand() % ((50000 - 10000) + 1); i++) //Generates the rest of the users
+    for (int i = 1; i < rand() % 50000 + 10000; i++) //Generates the rest of the users
     {
-        int phoneN = rand() % ((999999999 - 100000000) + 1);
+        int phoneN = rand() % rand() % 899999999 + 100000000;
         User newU;
         newU.setID(i);
         newU.setPhoneNumber(phoneN);
@@ -96,22 +95,23 @@ int CoreLogic::generateUsers()
             this->phones555.Push(phoneN);
             phone55Counter++;
         }
-        userCounter = i; //Se puede optimizar para que solo se guarde al final
+		userCounter = i;
     }
-    cout << "The amount of users generated is: " << userCounter << endl;
-    return phone55Counter;
+    retunArr[0] = userCounter;
+	retunArr[1] = phone55Counter;
+    return retunArr;
 }
 
 char CoreLogic::findPhoneNUmber(int phoneToF, int lenDigi) //Finds the first number that matches with phone
 {
     bool finding = true;
-    tnode aux = nullptr;
+    TreeNode* aux = nullptr;
     aux = this->userTree.getRoot();
     while (finding)
     {
         if (this->theyAreEqual(phoneToF, aux->getUser().getPhoneNumber())) //If they are equal
         {
-            cout << "The phone that matches first with" << phoneToF << "is: " << aux->getUser().getPhoneNumber() << endl;
+            cout << "The phone that matches first is: " << aux->getUser().getPhoneNumber() << endl;
             return aux->getUser().getRoom(); //We return the room where the match is maked
         }
         else

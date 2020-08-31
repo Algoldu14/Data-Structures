@@ -11,13 +11,17 @@ class TreeNode
 private:
     User user;
     //Left and Right son:
-    tnode Lson;
-    tnode Rson;
+    TreeNode* Lson;
+    TreeNode* Rson;
 public:
-	TreeNode(User u, tnode Lson, tnode Rson);
+	TreeNode(User u, TreeNode* Lson, TreeNode* Rson);
 	~TreeNode();
 	User getUser();
+	TreeNode* getLson();
+	TreeNode* getRson();
+	void setLson(TreeNode* lson);
+	void setRson(TreeNode* rson);
 
 };
-typedef TreeNode* tnode;
+
 #endif // TREENODE_H

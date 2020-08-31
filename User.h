@@ -12,6 +12,7 @@ private:
     char room;
 public:
 	User(int id, int phoneN, char room);
+	User(); //Dummy constructor
 	~User();
 	void setID(int id);
     int getID();
