@@ -6,9 +6,9 @@
 #include <iostream>
 using namespace std;
 //________Constructor and Destructor_________
-Interface::Interface(){}
+Interface::Interface() {}
 
-Interface::~Interface(){}
+Interface::~Interface() {}
 
 void Interface::startInterface()
 {
@@ -33,25 +33,30 @@ void Interface::startInterface()
         {
         case 'A':
             coreLogic.createQMMR();
-			int* aux;
-			aux = coreLogic.generateUsers();
+            int *aux;
+            aux = coreLogic.generateUsers();
             cout << "\n\tThe number of users generated are: " << aux[0] << endl;
-			cout << "\tThe number of 555 phones are: " << aux[1] << endl;
+            cout << "\tThe number of 555 phones are: " << aux[1] << endl;
             break;
         case 'B':
             int phoneNumber, phoneNumberAux, counter;
-            cout << "Insert the phone number you want to see (between 1 and 9 digit): " << endl;
+            cout << "\n\tInsert the phone number you want to see (between 1 and 9 digit): " << endl;
             cin >> phoneNumber;
             phoneNumberAux = phoneNumber;
             counter = 0;
             if (phoneNumber > 1 && phoneNumber < 999999999) //If the number is between the correct values
             {
-                while (phoneNumberAux > 10)
+                while (phoneNumberAux < 1000000000)
                 {
-                    phoneNumberAux = phoneNumberAux / 10;
-                    counter++; //The number of digits
+
+                    phoneNumberAux = phoneNumberAux * 10;
+                    //cout << "phoneNumberAux: " << phoneNumberAux << endl;
+                    counter++; //The number of digits remaining
+                    //cout << "counter: " << counter << endl;
                 }
-                cout << "The room of the phone number is: " << coreLogic.findPhoneNUmber(phoneNumber, counter) << endl;
+                //cout << "phoneNUmber: " << phoneNumber << " | counter: " << counter << endl;
+                cout << "\n\tThe first room with the given number is: " << coreLogic.findPhoneNUmber(phoneNumber, counter)<<endl;;
+                //cout << "The room of the phone number is: " << coreLogic.findPhoneNUmber(phoneNumber, counter) << endl;
             }
             break;
 
