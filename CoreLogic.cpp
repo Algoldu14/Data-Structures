@@ -83,7 +83,7 @@ int* CoreLogic::generateUsers()
 
     for (int i = 1; i < rand() % 50000 + 10000; i++) //Generates the rest of the users
     {
-        int phoneN = rand() % rand() % 899999999 + 100000000;
+        int phoneN = rand() % 899999999 + 100000000;
         User newU;
         newU.setID(i);
         newU.setPhoneNumber(phoneN);
