@@ -32,7 +32,10 @@
 *.app
 
 #CodeLite
-*.codelite
+.codelite/
+Debug/
+Debug.txt
 *.mk
 *.proyect
 *.workspace
+compile_flags.txt

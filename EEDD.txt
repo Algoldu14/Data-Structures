@@ -1,0 +1,1 @@
+Debug/CoreLogic.cpp.o Debug/List.cpp.o Debug/ListNode.cpp.o Debug/Tree.cpp.o Debug/User.cpp.o Debug/TreeNode.cpp.o Debug/Stack.cpp.o Debug/Interface.cpp.o Debug/QueueNode.cpp.o Debug/StackNode.cpp.o Debug/main.cpp.o Debug/Queue.cpp.o   
