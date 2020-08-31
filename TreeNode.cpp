@@ -1,7 +1,7 @@
 //
 // Created by Álvaro Golbano Durán
 //
-#include "TreeNode.hpp"
+#include "TreeNode.h"
 
 TreeNode::TreeNode(User u, TreeNode *Rson, TreeNode *Lson)
 {

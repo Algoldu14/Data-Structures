@@ -1,7 +1,7 @@
 //
 // Created by Álvaro Golbano Durán
 //
-#include "ListNode.hpp"
+#include "ListNode.h"
 
 //_____________Cosntructor______________
 

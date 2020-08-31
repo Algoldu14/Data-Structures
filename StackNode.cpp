@@ -2,7 +2,7 @@
 // Created by Álvaro Golbano Durán
 //
 
-#include "StackNode.hpp"
+#include "StackNode.h"
 #include <iostream>
 using namespace std;
 

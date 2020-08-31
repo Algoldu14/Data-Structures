@@ -2,7 +2,7 @@
 // Created by Álvaro Golbano Durán
 //
 
-#include "Stack.hpp"
+#include "Stack.h"
 #include <iostream>
 using namespace std;
 

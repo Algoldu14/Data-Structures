@@ -2,7 +2,7 @@
 // Created by Álvaro Golbano Durán
 //
 
-#include "Interface.hpp"
+#include "Interface.h"
 int main()
 {
     Interface interface;

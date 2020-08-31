@@ -2,7 +2,7 @@
 // Created by Álvaro Golbano Durán
 //
 
-#include "QueueNode.hpp"
+#include "QueueNode.h"
 #include <iostream>
 using namespace std;
 

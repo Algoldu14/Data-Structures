@@ -2,8 +2,8 @@
 // Created by Álvaro Golbano Durán
 //
 
-#ifndef INTERFACE_HPP
-#define INTERFACE_HPP
+#ifndef INTERFACE_H
+#define INTERFACE_H
 #include "CoreLogic.h"
 
 class Interface
@@ -19,4 +19,4 @@ public:
     void startInterface();
 };
 
-#endif //INTERFACE_HPP
+#endif //INTERFACE_H

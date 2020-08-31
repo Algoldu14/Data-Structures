@@ -2,11 +2,11 @@
 // Created by Álvaro Golbano Durán
 //
 
-#include "Queue.hpp"
-#include "Stack.hpp"
-#include "User.hpp"
-#include "List.hpp"
-#include "CoreLogic.hpp"
+#include "Queue.h"
+#include "Stack.h"
+#include "User.h"
+#include "List.h"
+#include "CoreLogic.h"
 #include <iostream>
 using namespace std;
 

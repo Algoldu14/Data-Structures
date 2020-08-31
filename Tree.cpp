@@ -4,7 +4,7 @@
 
 //__________Constructor_________
 
-#include "Tree.hpp"
+#include "Tree.h"
 
 Tree::Tree(tnode root)
 {

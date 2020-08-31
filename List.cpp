@@ -2,7 +2,7 @@
 // Created by Álvaro Golbano Durán
 //
 
-#include "List.hpp"
+#include "List.h"
 
 //____________Cosntructor and destructor____________
 List::List()

@@ -2,7 +2,7 @@
 // Created by Álvaro Golbano Durán
 //
 
-#include "User.hpp"
+#include "User.h"
 
 //____________Cosntructor_______________
 
