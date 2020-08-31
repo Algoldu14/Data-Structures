@@ -35,7 +35,8 @@
 .codelite/
 Debug/
 Debug.txt
+EEDD.txt
 *.mk
-*.proyect
+EEDD.proyect
 *.workspace
 compile_flags.txt
