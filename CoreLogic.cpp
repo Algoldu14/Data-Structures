@@ -282,3 +282,18 @@ void CoreLogic::listSearch(int *randomIds)
     cout << "The elapsed time to find the ids in the list: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec" << endl;
     cout << "-----------------------------------------------------------------------------" << endl;
 }
+
+void CoreLogic::treeSearch(int *randomIds)
+{
+    cout << "++++++++++++++ Start the search in the list ++++++++++++++" << endl;
+    auto start = chrono::steady_clock::now();
+    TreeNode *aux = this->userTree.getRoot();
+    int matchCounter, posList = 0;
+    while (matchCounter < 100 || aux->getLson() != nullptr || aux->getRson() != nullptr)
+    {
+                  
+    }
+    auto end = chrono::steady_clock::now();
+    cout << "The elapsed time to find the ids in the list: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec" << endl;
+    cout << "-----------------------------------------------------------------------------" << endl;
+}
