@@ -244,31 +244,41 @@ bool CoreLogic::isInTheArray(int id, int *randomIds)
 
 void CoreLogic::stackSearch(int *randomIds)
 {
+    cout << "++++++++++++++ Start the search in the stack ++++++++++++++" << endl;
     auto start = chrono::steady_clock::now();
+    User user;
     int matchCounter = 0;
     while (matchCounter < 100 || this->allPhones.getTop() != nullptr)
     {
-        if (this->isInTheArray(this->allPhones.Pop().getID(), randomIds)) //If we didnt find all the ids
+        user = this->allPhones.Pop();
+        if (this->isInTheArray(user.getID(), randomIds)) //If we didnt find all the ids
         {
             matchCounter++;
+            cout << "User (id): " << user.getID() << endl;
         }
     }
     auto end = chrono::steady_clock::now();
     cout << "The elapsed time to find the ids in a stack: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec" << endl;
+    cout << "-----------------------------------------------------------------------------" << endl;
 }
 
 void CoreLogic::listSearch(int *randomIds)
 {
+    cout << "++++++++++++++ Start the search in the list ++++++++++++++" << endl;
     auto start = chrono::steady_clock::now();
+    User user;
     int matchCounter, posList = 0;
     while (matchCounter < 100 || !this->listPhones.isEmpty())
     {
-        if (this->isInTheArray(this->listPhones.checkInPosList(posList).getID(), randomIds)) //If we didnt find all the ids
+        user = this->listPhones.checkInPosList(posList);
+        if (this->isInTheArray(user.getID(), randomIds)) //If we didnt find all the ids
         {
             matchCounter++;
+            cout << "User (id): " << user.getID() << endl;
         }
         posList++;
     }
     auto end = chrono::steady_clock::now();
     cout << "The elapsed time to find the ids in the list: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec" << endl;
+    cout << "-----------------------------------------------------------------------------" << endl;
 }
