@@ -1,3 +1,7 @@
 Para la opcion B de la ejecucion:
 - Hay que corregir los if para los hijos por si los siguientes hijos son nulos para que no siga. DONE
-- 
+- Preguntar por el ejercicio tres
+- En el ejercicio cuatro, mejor la lista y el stack construirlos al crear los ususarios 
+  y luego ya usarlos para el cuatro.
+- En el cinco hacer una busqueda de todos los cinco que seria igual que they are equal y a 
+  partir de ahi ir de izquierda a derecha buscandolos todos.
