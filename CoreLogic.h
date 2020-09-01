@@ -35,6 +35,7 @@ public:
     int* generateUsers();
     User findPhoneNUmber(int phoneToF, int lenDigi);
     bool theyAreEqual(int phoneN, int phoneU);
+    void phoneId100();
 
 };
 

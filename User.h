@@ -20,6 +20,7 @@ public:
     int getPhoneNumber();
     void setRoom(char room);
     char getRoom();
+    void showData();
 
 };
 

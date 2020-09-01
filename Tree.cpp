@@ -68,3 +68,12 @@ void Tree::insert(TreeNode* root, User user)
         }
     }
 }
+
+void Tree::preOrder(TreeNode* node)
+{
+    if(node != nullptr) {
+        node->getUser().showData();
+        preOrder(node->getLson());
+        preOrder(node->getRson());
+    }
+}

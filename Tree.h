@@ -23,6 +23,7 @@ public:
     TreeNode* getSon(TreeNode* b, int a);
     void insert(TreeNode* b, User u);
     bool isEmpty();
+    void preOrder(TreeNode* node);
 
 };
 

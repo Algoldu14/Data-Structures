@@ -19,33 +19,38 @@ CoreLogic::~CoreLogic() {}
 //___________Methods______________
 char CoreLogic::MMR()
 {
+    int counterQ1, counterQ2 = 26;
     int r = rand() % 11; //Generates a random number between 1 and 10
     int r2 = rand() % 11;
     char aux;
     if (r < 6) //The 60%
     {
         aux = this->mmrQueue2.Dequeue(); //Dequeues from the second queue
-
-        if (r2 < 7) //The 70% and the queue is big enough
+        counterQ2--;
+        if (r2 < 7 || counterQ2 < 13) //The 70% and the queue is big enough
         {
             this->mmrQueue2.Enqueue(aux);
+            counterQ2++;
         }
         else
         {
             this->mmrQueue1.Enqueue(aux);
+            counterQ1++;
         }
     }
     else //The 40%
     {
         aux = this->mmrQueue1.Dequeue(); //Dequeues from the first queue
-
-        if (r2 < 7) //The 70%
+        counterQ1--;
+        if (r2 < 7 || counterQ1 < 13) //The 70%
         {
             this->mmrQueue1.Enqueue(aux);
+            counterQ1++;
         }
         else
         {
             this->mmrQueue2.Enqueue(aux);
+            counterQ2++;
         }
     }
 
@@ -205,4 +210,9 @@ bool CoreLogic::theyAreEqual(int phoneToF, int phoneU) //Checks if two given num
         }
     }
     return coincidence;
+}
+
+void CoreLogic::phoneId100()
+{
+
 }
