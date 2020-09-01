@@ -201,3 +201,8 @@ void List::RegularRemove(ListNode *current)
     current->getNext()->setPrev(current->getPrevious());
     delete current;
 }
+
+bool List::isEmpty()
+{
+	return this->head == nullptr;
+}
