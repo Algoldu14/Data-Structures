@@ -10,18 +10,18 @@ class StackNode
 {
 private:
     StackNode *next; //Pointer to the next StackNode
-    int element;     //The element of the stackNode
+    User element;     //The element of the stackNode
 public:
     //Constructor and destructor
-	StackNode(int stackElem);
+	StackNode(User stackElem);
 	~StackNode();
 	
 	//Access methods
 
     void setNext(StackNode *stackNext);
-    void setElement(int stackElem);
+    void setElement(User stackElem);
     StackNode *getNext();
-    int getElement();
+    User getElement();
 
 };
 

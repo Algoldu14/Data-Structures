@@ -54,8 +54,8 @@ void Interface::startInterface()
                     //cout << "counter: " << counter << endl;
                 }
                 //cout << "phoneNUmber: " << phoneNumber << " | counter: " << counter << endl;
-				User user = coreLogic.findPhoneNUmber(phoneNumber, counter);
-                cout << "\n\tThe first room with the given number or similar is: " << user.getRoom() << " and his phone is: " << user.getPhoneNumber()<<endl;
+                User user = coreLogic.findPhoneNumber(phoneNumber, counter);
+                cout << "\n\tThe first room with the given number or similar is: " << user.getRoom() << " and his phone is: " << user.getPhoneNumber() << endl;
                 //cout << "The room of the phone number is: " << coreLogic.findPhoneNUmber(phoneNumber, counter) << endl;
             }
             break;

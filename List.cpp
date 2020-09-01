@@ -7,7 +7,7 @@
 
 List::List()
 {
-	this->head = nullptr;
+    this->head = nullptr;
     this->tail = nullptr;
 }
 
@@ -73,9 +73,31 @@ void List::Append(User newElement)
     newNode->setPrev(this->tail);
     this->tail = newNode;
 }
+User List::checkInPosList(int position)
+{
+    ListNode *current = this->head;
+    if (this->head != nullptr) // If list is not empty.
+    {
+        if (position == 0) // If list has only one element.
+        {
+            return this->head->getElement();
+        }
+    }
+    else
+    {
+        int ctr = 0;
+        //Iterate until specified position or out of bounds.
+        while ((ctr < position) && (current != nullptr))
+        {
+            current = current->getNext();
+            ctr++;
+        }
+    }
+    return current->getElement();
+}
 // Add the new node in the position of the current node specified.
 
-void List::Add(ListNode* newNode, ListNode* current)
+void List::Add(ListNode *newNode, ListNode *current)
 {
     newNode->setNext(current->getNext());
     newNode->getNext()->getPrevious()->setNext(newNode);
@@ -144,7 +166,6 @@ void List::Remove(int pos)
 }
 
 //_____________FUNCTIONS TO SIMPLIFY THE ABOVE FUNCTION_____________
-
 
 // Removes an element and resets the list.
 void List::EmptyRemove()

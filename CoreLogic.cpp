@@ -9,6 +9,7 @@
 #include "List.h"
 #include <iostream>
 #include <string>
+#include <chrono>
 using namespace std;
 
 //___________Costructor and Destructor_____________
@@ -86,7 +87,8 @@ int *CoreLogic::generateUsers()
     newU.setPhoneNumber(phoneN);
     newU.setRoom(this->MMR());
     TreeNode *aux = new TreeNode(newU, nullptr, nullptr);
-    this->userTree.setRoot(aux);                     //First user
+    this->userTree.setRoot(aux); //First user
+    userCounter++;
     for (int i = 1; i < rand() % 50000 + 10000; i++) //Generates the rest of the users
     {
         phoneN = 0;
@@ -101,21 +103,22 @@ int *CoreLogic::generateUsers()
         }
         //cout << "---------------------------" << endl;
         digit = 1;
-        User newU;
         newU.setID(i);
         newU.setPhoneNumber(phoneN);
         newU.setRoom(this->MMR());
         this->userTree.insert(this->userTree.getRoot(), newU); //Insert the node in the tree
+        this->allPhones.Push(newU);                            //Push for the exercise 4
+        this->listPhones.Append(newU);                         //Append for the exercise 4
         int first3 = (int)(phoneN / 1000000);                  //Take the first 3 digits of the phone number
         //cout << "First three digits: " << first3 << endl;
         if (first3 == 555)
         {
-            this->phones555.Push(phoneN);
+            this->phones555.Push(newU);
             phone555Counter++;
             //cout << "555 cont: " << phone555Counter << endl;
             //cout << "Phone: " << phoneN << endl;
         }
-        userCounter = i;
+        userCounter++;
     }
 
     retunArr[0] = userCounter;
@@ -125,7 +128,7 @@ int *CoreLogic::generateUsers()
     return retunArr;
 }
 
-User CoreLogic::findPhoneNUmber(int phoneToF, int lenDigi) //Finds the first number that matches with phone
+User CoreLogic::findPhoneNumber(int phoneToF, int lenDigi) //Finds the first number that matches with phone
 {
     bool finding = true;
     TreeNode *aux = nullptr;
@@ -214,5 +217,58 @@ bool CoreLogic::theyAreEqual(int phoneToF, int phoneU) //Checks if two given num
 
 void CoreLogic::phoneId100()
 {
+}
 
+int *CoreLogic::generateRandomIds(int range) //Generates the random ids for the shearch
+{
+    int *retunArr = new int[100];
+    for (int i = 0; i < 100; i++)
+    {
+        int id = rand() % range + 1;
+        retunArr[i] = id;
+    }
+    return retunArr;
+}
+
+bool CoreLogic::isInTheArray(int id, int *randomIds)
+{
+    for (int i = 0; i < sizeof(randomIds); i++)
+    {
+        if (id == randomIds[i])
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+void CoreLogic::stackSearch(int *randomIds)
+{
+    auto start = chrono::steady_clock::now();
+    int matchCounter = 0;
+    while (matchCounter < 100 || this->allPhones.getTop() != nullptr)
+    {
+        if (this->isInTheArray(this->allPhones.Pop().getID(), randomIds)) //If we didnt find all the ids
+        {
+            matchCounter++;
+        }
+    }
+    auto end = chrono::steady_clock::now();
+    cout << "The elapsed time to find the ids in a stack: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec" << endl;
+}
+
+void CoreLogic::listSearch(int *randomIds)
+{
+    auto start = chrono::steady_clock::now();
+    int matchCounter, posList = 0;
+    while (matchCounter < 100 || !this->listPhones.isEmpty())
+    {
+        if (this->isInTheArray(this->listPhones.checkInPosList(posList).getID(), randomIds)) //If we didnt find all the ids
+        {
+            matchCounter++;
+        }
+        posList++;
+    }
+    auto end = chrono::steady_clock::now();
+    cout << "The elapsed time to find the ids in the list: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec" << endl;
 }
