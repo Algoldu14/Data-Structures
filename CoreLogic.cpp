@@ -106,17 +106,17 @@ int *CoreLogic::generateUsers()
         newU.setID(i);
         newU.setPhoneNumber(phoneN);
         newU.setRoom(this->MMR());
-        this->userTree.insert(this->userTree.getRoot(), newU); //Insert the node in the tree
-        this->allPhones.Push(newU);                            //Push for the exercise 4
-        this->listPhones.Append(newU);                         //Append for the exercise 4
-        int first3 = (int)(phoneN / 1000000);                  //Take the first 3 digits of the phone number
+        this->userTree.insert(this->userTree.getRoot(), newU);  //Insert the node in the tree
+        this->allPhones.Push(newU);                             //Push for the exercise 4
+        this->listPhones.Append(newU);                          //Append for the exercise 4
+        int first3 = (int)(phoneN / 1000000);                   //Take the first 3 digits of the phone number
         //cout << "First three digits: " << first3 << endl;
         if (first3 == 555)
         {
             this->phones555.Push(newU);
             phone555Counter++;
             //cout << "555 cont: " << phone555Counter << endl;
-            //cout << "Phone: " << phoneN << endl;
+            cout << "\tPhone: " << phoneN << endl;
         }
         userCounter++;
     }
@@ -244,7 +244,7 @@ bool CoreLogic::isInTheArray(int id, int *randomIds)
 
 void CoreLogic::stackSearch(int *randomIds)
 {
-    cout << "++++++++++++++ Start the search in the stack ++++++++++++++" << endl;
+    cout << "\n\t++++++++++++++ Start the search in the stack ++++++++++++++" << endl;
     auto start = chrono::steady_clock::now();
     User user;
     int matchCounter = 0;
@@ -254,17 +254,17 @@ void CoreLogic::stackSearch(int *randomIds)
         if (this->isInTheArray(user.getID(), randomIds)) //If we didnt find all the ids
         {
             matchCounter++;
-            cout << "User (id): " << user.getID() << endl;
+            cout << "\tUser (id): " << user.getID() << endl;
         }
     }
     auto end = chrono::steady_clock::now();
-    cout << "The elapsed time to find the ids in a stack: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec" << endl;
-    cout << "-----------------------------------------------------------------------------" << endl;
+    cout << "\n\tThe elapsed time to find the ids in a stack: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec" << endl;
+    cout << "\n\t-----------------------------------------------------------------------------" << endl;
 }
 
 void CoreLogic::listSearch(int *randomIds)
 {
-    cout << "++++++++++++++ Start the search in the list ++++++++++++++" << endl;
+    cout << "\n\t++++++++++++++ Start the search in the list ++++++++++++++" << endl;
     auto start = chrono::steady_clock::now();
     User user;
     int matchCounter, posList = 0;
@@ -274,18 +274,18 @@ void CoreLogic::listSearch(int *randomIds)
         if (this->isInTheArray(user.getID(), randomIds)) //If we didnt find all the ids
         {
             matchCounter++;
-            cout << "User (id): " << user.getID() << endl;
+            cout << "\tUser (id): " << user.getID() << endl;
         }
         posList++;
     }
     auto end = chrono::steady_clock::now();
-    cout << "The elapsed time to find the ids in the list: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec" << endl;
-    cout << "-----------------------------------------------------------------------------" << endl;
+    cout << "\n\tThe elapsed time to find the ids in the list: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec" << endl;
+    cout << "\n\t-----------------------------------------------------------------------------" << endl;
 }
 
 void CoreLogic::treeSearch(int *randomIds)
 {
-    cout << "++++++++++++++ Start the search in the list ++++++++++++++" << endl;
+    cout << "\n\t++++++++++++++ Start the search in the list ++++++++++++++" << endl;
     auto start = chrono::steady_clock::now();
     TreeNode *aux = this->userTree.getRoot();
     int matchCounter, posList = 0;
@@ -294,6 +294,6 @@ void CoreLogic::treeSearch(int *randomIds)
                   
     }
     auto end = chrono::steady_clock::now();
-    cout << "The elapsed time to find the ids in the list: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec" << endl;
-    cout << "-----------------------------------------------------------------------------" << endl;
+    cout << "\n\tThe elapsed time to find the ids in the list: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec" << endl;
+    cout << "\n\t-----------------------------------------------------------------------------" << endl;
 }
