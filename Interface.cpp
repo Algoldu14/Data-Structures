@@ -48,14 +48,14 @@ void Interface::startInterface()
             {
                 while (phoneNumberAux < 1000000000)
                 {
-
                     phoneNumberAux = phoneNumberAux * 10;
                     //cout << "phoneNumberAux: " << phoneNumberAux << endl;
                     counter++; //The number of digits remaining
                     //cout << "counter: " << counter << endl;
                 }
                 //cout << "phoneNUmber: " << phoneNumber << " | counter: " << counter << endl;
-                cout << "\n\tThe first room with the given number is: " << coreLogic.findPhoneNUmber(phoneNumber, counter)<<endl;;
+				User user = coreLogic.findPhoneNUmber(phoneNumber, counter);
+                cout << "\n\tThe first room with the given number or similar is: " << user.getRoom() << " and his phone is: " << user.getPhoneNumber()<<endl;
                 //cout << "The room of the phone number is: " << coreLogic.findPhoneNUmber(phoneNumber, counter) << endl;
             }
             break;

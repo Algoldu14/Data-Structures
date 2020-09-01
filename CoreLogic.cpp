@@ -108,7 +108,7 @@ int *CoreLogic::generateUsers()
             this->phones555.Push(phoneN);
             phone555Counter++;
             //cout << "555 cont: " << phone555Counter << endl;
-            cout << "Phone: " << phoneN << endl;
+            //cout << "Phone: " << phoneN << endl;
         }
         userCounter = i;
     }
@@ -120,7 +120,7 @@ int *CoreLogic::generateUsers()
     return retunArr;
 }
 
-char CoreLogic::findPhoneNUmber(int phoneToF, int lenDigi) //Finds the first number that matches with phone
+User CoreLogic::findPhoneNUmber(int phoneToF, int lenDigi) //Finds the first number that matches with phone
 {
     bool finding = true;
     TreeNode *aux = nullptr;
@@ -132,8 +132,8 @@ char CoreLogic::findPhoneNUmber(int phoneToF, int lenDigi) //Finds the first num
         if (this->theyAreEqual(phoneToF, aux->getUser().getPhoneNumber())) //If they are equal
         {
             //cout << "The phone that matches first is: " << aux->getUser().getPhoneNumber() << endl;
-            cout << "Finded: " << aux->getUser().getPhoneNumber() << " = " << phoneToF << endl;
-            return aux->getUser().getRoom(); //We return the room where the match is maked
+            //cout << "Finded: " << aux->getUser().getPhoneNumber() << " = " << phoneToF << endl;
+            return aux->getUser(); //We return the room where the match is maked
         }
         else
         {
@@ -183,7 +183,7 @@ char CoreLogic::findPhoneNUmber(int phoneToF, int lenDigi) //Finds the first num
         }
     }
     //cout << "The phone that matches first with" << phoneToF << "is: NONE" << endl;
-    return aux->getUser().getRoom();
+    return aux->getUser();
 }
 
 bool CoreLogic::theyAreEqual(int phoneToF, int phoneU) //Checks if two given numbers are equal || phoneU >= phoneToF (always)

@@ -37,6 +37,6 @@ Debug/
 Debug.txt
 EEDD.txt
 *.mk
-EEDD.proyect
+EEDD.project
 *.workspace
 compile_flags.txt
