@@ -20,7 +20,8 @@ CoreLogic::~CoreLogic() {}
 //___________Methods______________
 char CoreLogic::MMR()
 {
-    int counterQ1, counterQ2 = 26;
+    int counterQ1 = 26;
+    int counterQ2 = 26;
     int r = rand() % 11; //Generates a random number between 1 and 10
     int r2 = rand() % 11;
     char aux;
@@ -107,16 +108,19 @@ int *CoreLogic::generateUsers()
         newU.setPhoneNumber(phoneN);
         newU.setRoom(this->MMR());
         this->userTree.insert(this->userTree.getRoot(), newU); //Insert the node in the tree
-        this->allPhones.Push(newU);                            //Push for the exercise 4
-        this->listPhones.Append(newU);                         //Append for the exercise 4
-        int first3 = (int)(phoneN / 1000000);                  //Take the first 3 digits of the phone number
+
+        this->allPhones.Push(newU); //Push for the exercise 4
+
+        //this->listPhones.Append(newU);                       //Append for the exercise 4 FALLA TOCHO, por?????
+
+        int first3 = (int)(phoneN / 1000000); //Take the first 3 digits of the phone number
         //cout << "First three digits: " << first3 << endl;
         if (first3 == 555)
         {
             this->phones555.Push(newU);
             phone555Counter++;
             //cout << "555 cont: " << phone555Counter << endl;
-            cout << "\tPhone: " << phoneN << endl;
+            cout << "\tPhone555: " << phoneN << endl;
         }
         userCounter++;
     }
@@ -133,37 +137,40 @@ User CoreLogic::findPhoneNumber(int phoneToF, int lenDigi) //Finds the first num
     bool finding = true;
     TreeNode *aux = nullptr;
     aux = this->userTree.getRoot();
-    //cout << "phoneToF before While: " << phoneToF << endl;
+    cout << "phoneToF before While: " << phoneToF << endl;
     while (finding)
     {
-        //cout << "phoneToF While: " << phoneToF << endl;
+        cout << "phoneToF While: " << phoneToF << endl;
+		cout << "phoneToF: " << phoneToF <<"aux->getUser().getPhoneNumber(): "<<aux->getUser().getPhoneNumber()<<endl;
+		
+		
         if (this->theyAreEqual(phoneToF, aux->getUser().getPhoneNumber())) //If they are equal
         {
-            //cout << "The phone that matches first is: " << aux->getUser().getPhoneNumber() << endl;
-            //cout << "Finded: " << aux->getUser().getPhoneNumber() << " = " << phoneToF << endl;
+            cout << "The phone that matches first is: " << aux->getUser().getPhoneNumber() << endl;
+            cout << "Finded: " << aux->getUser().getPhoneNumber() << " = " << phoneToF << endl;
             return aux->getUser(); //We return the room where the match is maked
         }
         else
         {
-            //cout << "phoneToF before for ----------------: " << phoneToF << endl;
+            cout << "phoneToF before for ----------------: " << phoneToF << endl;
             for (int i = 0; i < lenDigi - 1; i++)
             {
                 phoneToF = phoneToF * 10; //Create the complete phone number
-                //cout << "phoneToF meanwhile for ----------------: " << phoneToF << endl;
+                cout << "phoneToF meanwhile for ----------------: " << phoneToF << endl;
             }
-            //cout << "phoneToF after the for: " << phoneToF << endl;
+            cout << "phoneToF after the for: " << phoneToF << endl;
             if (aux->getUser().getPhoneNumber() - phoneToF > 0)
             {
-                //cout << "aux->getUser().getPhoneNumber() - phoneToF > 0: " << endl;
+                cout << "aux->getUser().getPhoneNumber() - phoneToF > 0: " << endl;
                 if (this->userTree.getSon(aux, 0) != nullptr)
                 {
                     aux = this->userTree.getSon(aux, 0); //We get the Lson
 
-                    for (int i = 0; i < 9 - lenDigi; i++)
+                    for (int i = 0; i < lenDigi - 1; i++)
                     {
                         phoneToF = phoneToF / 10; //Reset the phone number
                     }
-                    //cout << "phoneToF Reseted Lson: " << phoneToF << endl;
+                    cout << "phoneToF Reseted Lson: " << phoneToF << endl;
                 }
                 else
                 {
@@ -172,16 +179,16 @@ User CoreLogic::findPhoneNumber(int phoneToF, int lenDigi) //Finds the first num
             }
             else
             {
-                //cout << "aux->getUser().getPhoneNumber() - phoneToF < 0: " << endl;
+                cout << "aux->getUser().getPhoneNumber() - phoneToF < 0: " << endl;
                 if (this->userTree.getSon(aux, 1) != nullptr)
                 {
                     aux = this->userTree.getSon(aux, 1); //We get the Rson
 
-                    for (int i = 0; i < 9 - lenDigi; i++)
+                    for (int i = 0; i < lenDigi - 1; i++)
                     {
                         phoneToF = phoneToF / 10; //Reset the phone number
                     }
-                    //cout << "phoneToF Reseted Rson: " << phoneToF << endl;
+                    cout << "phoneToF Reseted Rson: " << phoneToF << endl;
                 }
                 else
                 {
@@ -190,33 +197,31 @@ User CoreLogic::findPhoneNumber(int phoneToF, int lenDigi) //Finds the first num
             }
         }
     }
-    //cout << "The phone that matches first with" << phoneToF << "is: NONE" << endl;
     return aux->getUser();
 }
 
 bool CoreLogic::theyAreEqual(int phoneToF, int phoneU) //Checks if two given numbers are equal || phoneU >= phoneToF (always)
 {
+	bool coincidence = true;
+	if (phoneToF == phoneU)
+    {
+        return coincidence;
+    }
     string phoneToFS = to_string(phoneToF);
     string phoneUS = to_string(phoneU);
-
-    bool coincidence = true;
-    //int lenPhoneToF = phoneToFS.length();
-
-    for (int i = 0; i < 9 - phoneToFS.length(); i++) //Add the needed cer
-    {
-        //cout << "phoneToFS[i] --------------- " << phoneToFS[i] << endl;
-        //cout << "phoneUS[i]   --------------- " << phoneUS[i] << endl;
-        if (phoneToFS[i] != phoneUS[i])
+    int lenPhoneToF = phoneToFS.length();
+	
+        for (int i = 0; i < 9 - lenPhoneToF - 1; i++) // AQUI
         {
-            coincidence = false;
-            break;
+            cout << "phoneToFS[i] --------------- " << phoneToFS[i] << endl;
+            cout << "phoneUS[i]   --------------- " << phoneUS[i] << endl;
+            if (phoneToFS[i] != phoneUS[i])
+            {
+                coincidence = false;
+                break;
+            }
         }
-    }
     return coincidence;
-}
-
-void CoreLogic::phoneId100()
-{
 }
 
 int *CoreLogic::generateRandomIds(int range) //Generates the random ids for the shearch
@@ -232,7 +237,8 @@ int *CoreLogic::generateRandomIds(int range) //Generates the random ids for the 
 
 bool CoreLogic::isInTheArray(int id, int *randomIds)
 {
-    for (int i = 0; i < sizeof(randomIds); i++)
+    int sizeRandIDS = sizeof(randomIds);
+    for (int i = 0; i < sizeRandIDS; i++)
     {
         if (id == randomIds[i])
         {
@@ -288,10 +294,10 @@ void CoreLogic::treeSearch(int *randomIds)
     cout << "\n\t++++++++++++++ Start the search in the tree ++++++++++++++" << endl;
     auto start = chrono::steady_clock::now();
     TreeNode *aux = this->userTree.getRoot();
-    int matchCounter, posList = 0;
+    int matchCounter = 0;
     while (matchCounter < 100 || aux->getLson() != nullptr || aux->getRson() != nullptr) //Post order traversal
     {
-        aux = aux->getLson(); 
+        aux = aux->getLson();
         aux = aux->getRson();
         if (this->isInTheArray(aux->getUser().getID(), randomIds))
         {

@@ -35,7 +35,7 @@ public:
     int *generateUsers(); //Option A in the simulation
     User findPhoneNumber(int phoneToF, int lenDigi); 
     bool theyAreEqual(int phoneN, int phoneU);
-    void phoneId100();
+    //void phoneId100();
     int *generateRandomIds(int range);
     bool isInTheArray(int id, int *randomIds);
     void stackSearch(int *randomIds);

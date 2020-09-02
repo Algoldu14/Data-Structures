@@ -4,6 +4,7 @@
 
 #include "Interface.h"
 #include <iostream>
+#include <string>
 using namespace std;
 //________Constructor and Destructor_________
 Interface::Interface() {}
@@ -33,21 +34,27 @@ void Interface::startInterface()
         switch (option)
         {
         case 'A':
+        {
             coreLogic.createQMMR();
             aux = coreLogic.generateUsers();
             cout << "\n\tThe number of users generated are: " << aux[0] << endl;
             cout << "\tThe number of 555 phones are: " << aux[1] << endl;
             break;
+        }
         case 'B':
+        {
+			
             int phoneNumber, phoneNumberAux, counter;
             cout << "\n\tInsert the phone number you want to see (between 1 and 9 digit): " << endl;
             cin >> phoneNumber;
+			string phoneNumberStr = to_string(phoneNumber);
             phoneNumberAux = phoneNumber;
             counter = 0;
             if (phoneNumber > 1 && phoneNumber < 999999999) //If the number is between the correct values
             {
-                while (phoneNumberAux < 1000000000)
+                while (phoneNumberAux < 1000000000 && phoneNumberStr.length() <= 9)
                 {
+					//cout<<"entro aqui---------------------------"<<endl;
                     phoneNumberAux = phoneNumberAux * 10;
                     //cout << "phoneNumberAux: " << phoneNumberAux << endl;
                     counter++; //The number of digits remaining
@@ -58,9 +65,18 @@ void Interface::startInterface()
                 cout << "\n\tThe first room with the given number or similar is: " << user.getRoom() << " and his phone is: " << user.getPhoneNumber() << endl;
                 //cout << "The room of the phone number is: " << coreLogic.findPhoneNUmber(phoneNumber, counter) << endl;
             }
+			else
+			{
+				cout<<"Wrong phone number"<<endl;
+			}
             break;
+        }
 
         case 'C':
+        {
+        }
+        case 'D':
+        {
             cout << "\n\tThe ids generated are: " << endl;
             int *ids = coreLogic.generateRandomIds(aux[0]);
             for (int i = 0; i < sizeof(ids); i++)
@@ -71,14 +87,12 @@ void Interface::startInterface()
             coreLogic.listSearch(ids);
             coreLogic.treeSearch(ids);
             break;
-
-        case 'D':
-
-            break;
-
+        }
         case 'S':
+        {
             cout << "\n\tLeaving the program...\n";
             break;
+        }
 
         default:
             cout << "\n\tIncorrect option!\n\n";
