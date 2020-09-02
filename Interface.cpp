@@ -5,6 +5,8 @@
 #include "Interface.h"
 #include <iostream>
 #include <string>
+#include <array>
+  
 using namespace std;
 //________Constructor and Destructor_________
 Interface::Interface() {}
@@ -79,7 +81,7 @@ void Interface::startInterface()
         {
             cout << "\n\tThe ids generated are: " << endl;
             int *ids = coreLogic.generateRandomIds(aux[0]);
-            for (int i = 0; i < sizeof(ids); i++)
+            for (int i = 0; i < sizeof(*ids); i++)//Corregir
             {
                 cout << "\tID number:  " << i << " number: " << ids[i] << endl;
             }

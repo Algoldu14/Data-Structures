@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <chrono>
+#include <array>
 using namespace std;
 
 //___________Costructor and Destructor_____________
@@ -29,7 +30,7 @@ char CoreLogic::MMR()
     {
         aux = this->mmrQueue2.Dequeue(); //Dequeues from the second queue
         counterQ2--;
-        if (r2 < 7 || counterQ2 < 13) //The 70% and the queue is big enough
+        if (r2 < 7 || counterQ2 > 13) //The 70% and the queue is big enough
         {
             this->mmrQueue2.Enqueue(aux);
             counterQ2++;
@@ -44,7 +45,7 @@ char CoreLogic::MMR()
     {
         aux = this->mmrQueue1.Dequeue(); //Dequeues from the first queue
         counterQ1--;
-        if (r2 < 7 || counterQ1 < 13) //The 70%
+        if (r2 < 7 || counterQ1 > 13) //The 70%
         {
             this->mmrQueue1.Enqueue(aux);
             counterQ1++;
@@ -207,7 +208,7 @@ bool CoreLogic::theyAreEqual(int phoneToF, int phoneU) //Checks if two given num
     if (phoneToF == phoneU)
     {
         coincidence = true;
-        return coincidence; 
+        return coincidence;
     }
 
     for (int i = 0; i < lenPhoneToF; i++)
@@ -230,7 +231,10 @@ int *CoreLogic::generateRandomIds(int range) //Generates the random ids for the 
     {
         int id = rand() % range + 1;
         retunArr[i] = id;
+        cout<<retunArr[i]<<endl;
     }
+	//int len = *(&retunArr + 1) - retunArr;
+	//cout<<"---------------------"<<len<<endl;
     return retunArr;
 }
 
