@@ -43,18 +43,18 @@ void Interface::startInterface()
         }
         case 'B':
         {
-			
+
             int phoneNumber, phoneNumberAux, counter;
             cout << "\n\tInsert the phone number you want to see (between 1 and 9 digit): " << endl;
             cin >> phoneNumber;
-			string phoneNumberStr = to_string(phoneNumber);
+            string phoneNumberStr = to_string(phoneNumber);
             phoneNumberAux = phoneNumber;
             counter = 0;
             if (phoneNumber > 1 && phoneNumber < 999999999) //If the number is between the correct values
             {
-                while (phoneNumberAux < 1000000000 && phoneNumberStr.length() <= 9)
+                while (phoneNumberAux < 1000000000 && phoneNumberStr.length() <= 9) //
                 {
-					//cout<<"entro aqui---------------------------"<<endl;
+                    //cout<<"entro aqui---------------------------"<<endl;
                     phoneNumberAux = phoneNumberAux * 10;
                     //cout << "phoneNumberAux: " << phoneNumberAux << endl;
                     counter++; //The number of digits remaining
@@ -65,10 +65,10 @@ void Interface::startInterface()
                 cout << "\n\tThe first room with the given number or similar is: " << user.getRoom() << " and his phone is: " << user.getPhoneNumber() << endl;
                 //cout << "The room of the phone number is: " << coreLogic.findPhoneNUmber(phoneNumber, counter) << endl;
             }
-			else
-			{
-				cout<<"Wrong phone number"<<endl;
-			}
+            else
+            {
+                cout << "Wrong phone number" << endl;
+            }
             break;
         }
 
