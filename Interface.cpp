@@ -14,6 +14,7 @@ void Interface::startInterface()
 {
     CoreLogic coreLogic;
     char option;
+    int *aux;
     do
     {
         cout << "\n\t---------------------------------------------------------\n";
@@ -33,7 +34,6 @@ void Interface::startInterface()
         {
         case 'A':
             coreLogic.createQMMR();
-            int *aux;
             aux = coreLogic.generateUsers();
             cout << "\n\tThe number of users generated are: " << aux[0] << endl;
             cout << "\tThe number of 555 phones are: " << aux[1] << endl;
@@ -61,7 +61,15 @@ void Interface::startInterface()
             break;
 
         case 'C':
-
+            cout << "\n\tThe ids generated are: " << endl;
+            int *ids = coreLogic.generateRandomIds(aux[0]);
+            for (int i = 0; i < sizeof(ids); i++)
+            {
+                cout << "\tID number:  " << i << " number: " << ids[i] << endl;
+            }
+            coreLogic.stackSearch(ids);
+            coreLogic.listSearch(ids);
+            coreLogic.treeSearch(ids);
             break;
 
         case 'D':

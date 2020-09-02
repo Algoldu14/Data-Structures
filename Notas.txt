@@ -5,3 +5,5 @@ Para la opcion B de la ejecucion:
   y luego ya usarlos para el cuatro.
 - En el cinco hacer una busqueda de todos los cinco que seria igual que they are equal y a 
   partir de ahi ir de izquierda a derecha buscandolos todos.
+
+- Hacer una presentacón del trabajo.
