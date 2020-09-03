@@ -7,11 +7,11 @@
 
 QueueNode::QueueNode(char queueData)
 {
-	this->queueData = queueData;
+    this->queueData = queueData;
     this->next = nullptr;
 }
 
-QueueNode::~QueueNode(){}
+QueueNode::~QueueNode() {}
 
 //________Access Methods________
 

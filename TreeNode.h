@@ -9,19 +9,19 @@
 class TreeNode
 {
 private:
-    User user;
-    //Left and Right son:
-    TreeNode* Lson;
-    TreeNode* Rson;
+	User user;
+	//Left and Right son:
+	TreeNode *Lson;
+	TreeNode *Rson;
+
 public:
-	TreeNode(User u, TreeNode* Lson, TreeNode* Rson);
+	TreeNode(User u, TreeNode *Lson, TreeNode *Rson);
 	~TreeNode();
 	User getUser();
-	TreeNode* getLson();
-	TreeNode* getRson();
-	void setLson(TreeNode* lson);
-	void setRson(TreeNode* rson);
-
+	TreeNode *getLson();
+	TreeNode *getRson();
+	void setLson(TreeNode *lson);
+	void setRson(TreeNode *rson);
 };
 
 #endif // TREENODE_H

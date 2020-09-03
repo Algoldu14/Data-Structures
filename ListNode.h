@@ -12,12 +12,12 @@ private:
     User element;       // Element of the node
     ListNode *previous; // Pointer to the previous node
     ListNode *next;     // Pointer to the next node
-	
-public:
-	ListNode(User u);
-	~ListNode();
 
-	//Access methods
+public:
+    ListNode(User u);
+    ~ListNode();
+
+    //Access methods
     ListNode *getNext();
     ListNode *getPrevious();
     User getElement();

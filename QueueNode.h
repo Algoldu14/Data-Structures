@@ -7,17 +7,17 @@
 
 class QueueNode
 {
-	private:
+private:
     QueueNode *next;
     char queueData;
     friend class Queue;
-	
-public:
-	//Cosntructor methods
-	QueueNode(char queueData);
-	~QueueNode();
 
-	//Access methods
+public:
+    //Cosntructor methods
+    QueueNode(char queueData);
+    ~QueueNode();
+
+    //Access methods
     QueueNode *getNext();
     char getContent();
     void setNext(QueueNode *qNext);

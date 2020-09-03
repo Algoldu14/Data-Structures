@@ -7,10 +7,10 @@
 //____________Cosntructor and Destructor_______________
 Stack::Stack()
 {
-	this->top = nullptr;
+    this->top = nullptr;
 }
 
-Stack::~Stack(){}
+Stack::~Stack() {}
 
 //___________Access Methods____________
 

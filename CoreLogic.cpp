@@ -285,7 +285,7 @@ void CoreLogic::listSearch(int *randomIds)
     while (matchCounter < 100)
     {
         user = this->listPhones.checkInPosList(posList);
-        if (this->isInTheArray(user.getID(), randomIds)) //If we find all the id
+        if (this->isInTheArray(user.getID(), randomIds)) //If we find the id in this position
         {
             matchCounter++;
             cout << "\tUser (id): " << user.getID() << endl;
@@ -303,18 +303,21 @@ void CoreLogic::treeSearch(int *randomIds)
     cout << "\n\t++++++++++++++ Start the search in the tree ++++++++++++++" << endl;
     auto start = chrono::steady_clock::now();
     TreeNode *aux = this->userTree.getRoot();
-    int matchCounter = 0;
-    while (matchCounter < 100 && aux->getLson() != nullptr && aux->getRson() != nullptr) //Post order traversal
-    {
-        if (this->isInTheArray(aux->getUser().getID(), randomIds))
-        {
-            matchCounter++;
-            cout << "\tUser (id): " << aux->getUser().getID() << endl;
-        }
-        aux = aux->getLson();
-        aux = aux->getRson();
-    }
+    this->preOrderSearch(randomIds, aux);
     auto end = chrono::steady_clock::now();
     cout << "\n\tThe elapsed time to find the ids in the tree: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " miliseconds" << endl;
     cout << "\n\t-----------------------------------------------------------------------------" << endl;
+}
+
+void CoreLogic::preOrderSearch(int *randomIds, TreeNode *node)
+{
+    if (node != nullptr)
+    {
+        if (this->isInTheArray(node->getUser().getID(), randomIds))
+        {
+            cout << "\tUser (id): " << node->getUser().getID() << endl;
+        }
+        this->preOrderSearch(randomIds, node->getLson());
+        this->preOrderSearch(randomIds, node->getRson());
+    }
 }

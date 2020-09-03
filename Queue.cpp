@@ -8,11 +8,11 @@
 
 Queue::Queue()
 {
-	this->front = nullptr;
+    this->front = nullptr;
     this->rear = nullptr;
 }
 
-Queue::~Queue(){}
+Queue::~Queue() {}
 
 //___________ADT Methods____________
 
@@ -54,7 +54,7 @@ void Queue::makeNull() //Dequeues the queue until the front is a nullptr
     }
 }
 
-bool Queue::isEmpty()  //Checks if the queue is empty
+bool Queue::isEmpty() //Checks if the queue is empty
 {
     return this->front == nullptr;
 }

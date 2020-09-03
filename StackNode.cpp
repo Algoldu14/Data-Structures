@@ -9,10 +9,10 @@
 StackNode::StackNode(User stackElem)
 {
     this->element = stackElem;
-	this->next = nullptr;
+    this->next = nullptr;
 }
 
-StackNode::~StackNode(){}
+StackNode::~StackNode() {}
 
 //____________Acccss Methods_______________
 
