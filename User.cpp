@@ -49,7 +49,7 @@ char User::getRoom()
 }
 void User::showData()
 {
-    cout << "User id: " << this->getID() << endl;
-    cout << "User phone number: " << this->getPhoneNumber() << endl;
-    cout << "User room: " << this->getRoom() << endl;
+    cout << "\t++++ User id: " << this->getID() <<" ++++"<<endl;
+    cout << "\tPhone number: " << this->getPhoneNumber() << endl;
+    cout << "\tUser room: " << this->getRoom() << endl;
 }

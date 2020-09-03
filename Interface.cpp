@@ -94,7 +94,7 @@ void Interface::startInterface()
         }
         case 'E':
         {
-
+			coreLogic.phoneId100(aux[0]);
             break;
         }
         case 'S':

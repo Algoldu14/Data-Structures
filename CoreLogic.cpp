@@ -323,14 +323,17 @@ void CoreLogic::preOrderSearch(int *randomIds, TreeNode *node)
 void CoreLogic::phoneId100(int maxId)
 {
     int id = rand() % maxId + 1;
-    cout << "\tThe id selected is: " << id << endl;
+    cout << "\n\tThe id selected is: " << id << endl;
     TreeNode *idNode = this->preOrderSearchId(id, this->userTree.getRoot());
+	idNode->getUser().showData();
     cout << "\tThe tree in preorder criteria is: " << endl;
-    this->preorderPrint(idNode, 0);
+    //this->preorderPrint(idNode, 0);
 }
 
 TreeNode *CoreLogic::preOrderSearchId(int id, TreeNode *node)
 {
+	cout<<id;
+	cout<<node->getUser().getID();
     if (node != nullptr)
     {
         if (node->getUser().getID() == id)
@@ -340,7 +343,7 @@ TreeNode *CoreLogic::preOrderSearchId(int id, TreeNode *node)
         preOrderSearchId(id, node->getLson());
         preOrderSearchId(id, node->getRson());
     }
-    return nullptr;
+    return node;
 }
 
 void CoreLogic::preorderPrint(TreeNode *node, int counter)
