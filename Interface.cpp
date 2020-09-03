@@ -81,9 +81,9 @@ void Interface::startInterface()
         {
             cout << "\n\tThe ids generated are: " << endl;
             int *ids = coreLogic.generateRandomIds(aux[0]);
-            for (int i = 0; i < sizeof(*ids); i++)//Corregir
+            for (int i = 0; i < 100; i++)//Corregir
             {
-                cout << "\tID number:  " << i << " number: " << ids[i] << endl;
+                cout << "\tID number: " << i << " number: " << ids[i] << endl;
             }
             coreLogic.stackSearch(ids);
             coreLogic.listSearch(ids);

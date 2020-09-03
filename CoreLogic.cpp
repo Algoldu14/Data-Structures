@@ -82,6 +82,7 @@ int *CoreLogic::generateUsers()
     int phone555Counter = 0;
     int userCounter = 0;
     int *retunArr = new int[2];
+
     //We generate the fisrst user to be the root of the tree
     int phoneN = rand() % 899999999 + 100000000; //Random Number between 100000000 and 999999999
     User newU;
@@ -89,8 +90,13 @@ int *CoreLogic::generateUsers()
     newU.setPhoneNumber(phoneN);
     newU.setRoom(this->MMR());
     TreeNode *aux = new TreeNode(newU, nullptr, nullptr);
-    this->userTree.setRoot(aux); //First user
+
+    //First user
+    this->allPhones.Push(newU);
+    this->listPhones.Insert(newU, 0);
+    this->userTree.setRoot(aux);
     userCounter++;
+
     for (int i = 1; i < rand() % 50000 + 10000; i++) //Generates the rest of the users
     {
         phoneN = 0;
@@ -112,7 +118,7 @@ int *CoreLogic::generateUsers()
 
         this->allPhones.Push(newU); //Push for the exercise 4
 
-        //this->listPhones.Append(newU);                       //Append for the exercise 4 FALLA TOCHO, por?????
+        this->listPhones.Append(newU); //Append for the exercise 4
 
         int first3 = (int)(phoneN / 1000000); //Take the first 3 digits of the phone number
         //cout << "First three digits: " << first3 << endl;
@@ -231,17 +237,13 @@ int *CoreLogic::generateRandomIds(int range) //Generates the random ids for the 
     {
         int id = rand() % range + 1;
         retunArr[i] = id;
-        cout<<retunArr[i]<<endl;
     }
-	//int len = *(&retunArr + 1) - retunArr;
-	//cout<<"---------------------"<<len<<endl;
     return retunArr;
 }
 
 bool CoreLogic::isInTheArray(int id, int *randomIds)
 {
-    int sizeRandIDS = sizeof(randomIds);
-    for (int i = 0; i < sizeRandIDS; i++)
+    for (int i = 0; i < 100; i++)
     {
         if (id == randomIds[i])
         {
@@ -265,9 +267,10 @@ void CoreLogic::stackSearch(int *randomIds)
             matchCounter++;
             cout << "\tUser (id): " << user.getID() << endl;
         }
+		
     }
     auto end = chrono::steady_clock::now();
-    cout << "\n\tThe elapsed time to find the ids in a stack: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec" << endl;
+    cout << "\n\tThe elapsed time to find the ids in a stack: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " miliseconds" << endl;
     cout << "\n\t-----------------------------------------------------------------------------" << endl;
 }
 
@@ -279,6 +282,7 @@ void CoreLogic::listSearch(int *randomIds)
     int matchCounter, posList = 0;
     while (matchCounter < 100 || !this->listPhones.isEmpty())
     {
+        //cout << posList << endl;
         user = this->listPhones.checkInPosList(posList);
         if (this->isInTheArray(user.getID(), randomIds)) //If we didnt find all the ids
         {
@@ -288,7 +292,7 @@ void CoreLogic::listSearch(int *randomIds)
         posList++;
     }
     auto end = chrono::steady_clock::now();
-    cout << "\n\tThe elapsed time to find the ids in the list: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec" << endl;
+    cout << "\n\tThe elapsed time to find the ids in the list: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " miliseconds" << endl;
     cout << "\n\t-----------------------------------------------------------------------------" << endl;
 }
 
@@ -309,6 +313,6 @@ void CoreLogic::treeSearch(int *randomIds)
         }
     }
     auto end = chrono::steady_clock::now();
-    cout << "\n\tThe elapsed time to find the ids in the tree: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sec" << endl;
+    cout << "\n\tThe elapsed time to find the ids in the tree: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " miliseconds" << endl;
     cout << "\n\t-----------------------------------------------------------------------------" << endl;
 }

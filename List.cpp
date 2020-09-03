@@ -3,6 +3,9 @@
 //
 
 #include "List.h"
+#include <iostream>
+using namespace std;
+
 //____________Cosntructor and destructor____________
 
 List::List()
@@ -67,30 +70,31 @@ void List::Insert(User element, int pos)
 // Add the new node at the end of the list.
 
 void List::Append(User newElement)
-{
+{    
     ListNode *newNode = new ListNode(newElement);
     this->tail->setNext(newNode);
     newNode->setPrev(this->tail);
     this->tail = newNode;
 }
+
 User List::checkInPosList(int position)
 {
     ListNode *current = this->head;
     if (this->head != nullptr) // If list is not empty.
     {
-        if (position == 0) // If list has only one element.
+        if (position == 0) // If list has only one element
         {
-            return this->head->getElement();
+            return current->getElement();
         }
     }
     else
     {
-        int ctr = 0;
+        int counter = 0;
         //Iterate until specified position or out of bounds.
-        while ((ctr < position) && (current != nullptr))
+        while ((counter < position) && (current != nullptr))
         {
             current = current->getNext();
-            ctr++;
+            counter++;
         }
     }
     return current->getElement();
@@ -206,3 +210,4 @@ bool List::isEmpty()
 {
 	return this->head == nullptr;
 }
+
