@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 #include <array>
-  
+
 using namespace std;
 //________Constructor and Destructor_________
 Interface::Interface() {}
@@ -22,7 +22,7 @@ void Interface::startInterface()
     {
         cout << "\n\t---------------------------------------------------------\n";
         cout << "\t                          MMR                              \n";
-        cout << "\t-----------------------------------------------------------\n";
+        cout << "\t---------------------------------------------------------\n";
         cout << "\n\tA. Start simulation.\n";
         cout << "\tB. Search a phone number. \n";
         cout << "\tC. List of 100 phone-ID in the tree.\n";
@@ -79,9 +79,10 @@ void Interface::startInterface()
         }
         case 'D':
         {
-            cout << "\n\tThe ids generated are: " << endl;
+            cout << "\n\tThe ids generated are: \n"
+                 << endl;
             int *ids = coreLogic.generateRandomIds(aux[0]);
-            for (int i = 0; i < 100; i++)//Corregir
+            for (int i = 0; i < 100; i++) //Corregir
             {
                 cout << "\tID number: " << i << " number: " << ids[i] << endl;
             }

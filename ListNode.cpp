@@ -6,12 +6,12 @@
 
 ListNode::ListNode(User element)
 {
-	this->element = element;
+    this->element = element;
     this->previous = nullptr;
     this->next = nullptr;
 }
 
-ListNode::~ListNode(){}
+ListNode::~ListNode() {}
 
 //_____________Access Methods____________
 
@@ -20,9 +20,9 @@ ListNode *ListNode::getNext()
     return this->next;
 }
 
-ListNode* ListNode::getPrevious()
+ListNode *ListNode::getPrevious()
 {
-    return this -> previous;
+    return this->previous;
 }
 
 User ListNode::getElement()
@@ -32,15 +32,15 @@ User ListNode::getElement()
 
 void ListNode::setNext(ListNode *listNxt)
 {
-    this -> next = listNxt;
+    this->next = listNxt;
 }
 
 void ListNode::setPrev(ListNode *listPrev)
 {
-    this -> previous = listPrev;
+    this->previous = listPrev;
 }
 
 void ListNode::setElement(User listElem)
 {
-    this -> element = listElem;
+    this->element = listElem;
 }

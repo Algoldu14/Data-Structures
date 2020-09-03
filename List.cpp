@@ -3,9 +3,6 @@
 //
 
 #include "List.h"
-#include <iostream>
-using namespace std;
-
 //____________Cosntructor and destructor____________
 
 List::List()
@@ -70,7 +67,7 @@ void List::Insert(User element, int pos)
 // Add the new node at the end of the list.
 
 void List::Append(User newElement)
-{    
+{
     ListNode *newNode = new ListNode(newElement);
     this->tail->setNext(newNode);
     newNode->setPrev(this->tail);
@@ -86,15 +83,15 @@ User List::checkInPosList(int position)
         {
             return current->getElement();
         }
-    }
-    else
-    {
-        int counter = 0;
-        //Iterate until specified position or out of bounds.
-        while ((counter < position) && (current != nullptr))
+        else
         {
-            current = current->getNext();
-            counter++;
+            int counter = 0;
+            //Iterate until specified position or out of bounds.
+            while ((counter < position) && (current != nullptr))
+            {
+                current = current->getNext();
+                counter++;
+            }
         }
     }
     return current->getElement();
@@ -208,6 +205,5 @@ void List::RegularRemove(ListNode *current)
 
 bool List::isEmpty()
 {
-	return this->head == nullptr;
+    return this->head == nullptr;
 }
-

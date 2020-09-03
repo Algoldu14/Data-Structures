@@ -31,9 +31,9 @@ public:
 
     //Methods
     void createQMMR();
-    char MMR(); //The algorithm to assing a new user room
+    char MMR();           //The algorithm to assing a new user room
     int *generateUsers(); //Option A in the simulation
-    User findPhoneNumber(int phoneToF, int lenDigi); 
+    User findPhoneNumber(int phoneToF, int lenDigi);
     bool theyAreEqual(int phoneN, int phoneU);
     //void phoneId100();
     int *generateRandomIds(int range);

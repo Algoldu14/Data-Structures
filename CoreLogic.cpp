@@ -114,13 +114,12 @@ int *CoreLogic::generateUsers()
         newU.setID(i);
         newU.setPhoneNumber(phoneN);
         newU.setRoom(this->MMR());
-        this->userTree.insert(this->userTree.getRoot(), newU); //Insert the node in the tree
+        //newU.showData();
 
-        this->allPhones.Push(newU); //Push for the exercise 4
-
-        this->listPhones.Append(newU); //Append for the exercise 4
-
-        int first3 = (int)(phoneN / 1000000); //Take the first 3 digits of the phone number
+        this->userTree.insert(this->userTree.getRoot(), newU); //Insert the node in the TREE
+        this->allPhones.Push(newU);                            //Push for the exercise 4 STACK
+        this->listPhones.Insert(newU, i);                      //Insert for the exercise 4 LIST
+        int first3 = (int)(phoneN / 1000000);                  //Take the first 3 digits of the phone number
         //cout << "First three digits: " << first3 << endl;
         if (first3 == 555)
         {
@@ -255,36 +254,38 @@ bool CoreLogic::isInTheArray(int id, int *randomIds)
 
 void CoreLogic::stackSearch(int *randomIds)
 {
-    cout << "\n\t++++++++++++++ Start the search in the stack ++++++++++++++" << endl;
+    cout << "\n\t++++++++++++++ Start the search in the stack ++++++++++++++\n"
+         << endl;
     auto start = chrono::steady_clock::now();
     User user;
     int matchCounter = 0;
     while (matchCounter < 100 || this->allPhones.getTop() != nullptr)
     {
         user = this->allPhones.Pop();
-        if (this->isInTheArray(user.getID(), randomIds)) //If we didnt find all the ids
+        if (this->isInTheArray(user.getID(), randomIds)) //If we find all the id
         {
             matchCounter++;
             cout << "\tUser (id): " << user.getID() << endl;
         }
-		
     }
     auto end = chrono::steady_clock::now();
     cout << "\n\tThe elapsed time to find the ids in a stack: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " miliseconds" << endl;
-    cout << "\n\t-----------------------------------------------------------------------------" << endl;
+    cout << "\n\t-----------------------------------------------------------------------------\n"
+         << endl;
 }
 
 void CoreLogic::listSearch(int *randomIds)
 {
-    cout << "\n\t++++++++++++++ Start the search in the list ++++++++++++++" << endl;
+    cout << "\n\t++++++++++++++ Start the search in the list ++++++++++++++\n"
+         << endl;
     auto start = chrono::steady_clock::now();
     User user;
-    int matchCounter, posList = 0;
-    while (matchCounter < 100 || !this->listPhones.isEmpty())
+    int matchCounter = 0;
+    int posList = 0;
+    while (matchCounter < 100)
     {
-        //cout << posList << endl;
         user = this->listPhones.checkInPosList(posList);
-        if (this->isInTheArray(user.getID(), randomIds)) //If we didnt find all the ids
+        if (this->isInTheArray(user.getID(), randomIds)) //If we find all the id
         {
             matchCounter++;
             cout << "\tUser (id): " << user.getID() << endl;
@@ -293,7 +294,8 @@ void CoreLogic::listSearch(int *randomIds)
     }
     auto end = chrono::steady_clock::now();
     cout << "\n\tThe elapsed time to find the ids in the list: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " miliseconds" << endl;
-    cout << "\n\t-----------------------------------------------------------------------------" << endl;
+    cout << "\n\t-----------------------------------------------------------------------------\n"
+         << endl;
 }
 
 void CoreLogic::treeSearch(int *randomIds)
@@ -302,15 +304,15 @@ void CoreLogic::treeSearch(int *randomIds)
     auto start = chrono::steady_clock::now();
     TreeNode *aux = this->userTree.getRoot();
     int matchCounter = 0;
-    while (matchCounter < 100 || aux->getLson() != nullptr || aux->getRson() != nullptr) //Post order traversal
+    while (matchCounter < 100 && aux->getLson() != nullptr && aux->getRson() != nullptr) //Post order traversal
     {
-        aux = aux->getLson();
-        aux = aux->getRson();
         if (this->isInTheArray(aux->getUser().getID(), randomIds))
         {
             matchCounter++;
             cout << "\tUser (id): " << aux->getUser().getID() << endl;
         }
+        aux = aux->getLson();
+        aux = aux->getRson();
     }
     auto end = chrono::steady_clock::now();
     cout << "\n\tThe elapsed time to find the ids in the tree: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " miliseconds" << endl;
