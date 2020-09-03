@@ -270,8 +270,7 @@ void CoreLogic::stackSearch(int *randomIds)
     }
     auto end = chrono::steady_clock::now();
     cout << "\n\tThe elapsed time to find the ids in a stack: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " miliseconds" << endl;
-    cout << "\n\t-----------------------------------------------------------------------------\n"
-         << endl;
+    cout << "\n\t-----------------------------------------------------------------------------" << endl;
 }
 
 void CoreLogic::listSearch(int *randomIds)
@@ -294,19 +293,18 @@ void CoreLogic::listSearch(int *randomIds)
     }
     auto end = chrono::steady_clock::now();
     cout << "\n\tThe elapsed time to find the ids in the list: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " miliseconds" << endl;
-    cout << "\n\t-----------------------------------------------------------------------------\n"
-         << endl;
+    cout << "\n\t-----------------------------------------------------------------------------" << endl;
 }
 
 void CoreLogic::treeSearch(int *randomIds)
 {
-    cout << "\n\t++++++++++++++ Start the search in the tree ++++++++++++++\n" << endl;
+    cout << "\n\t++++++++++++++ Start the search in the tree ++++++++++++++" << endl;
     auto start = chrono::steady_clock::now();
     TreeNode *aux = this->userTree.getRoot();
     this->preOrderSearch(randomIds, aux);
     auto end = chrono::steady_clock::now();
     cout << "\n\tThe elapsed time to find the ids in the tree: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " miliseconds" << endl;
-    cout << "\n\t-----------------------------------------------------------------------------\n" << endl;
+    cout << "\n\t-----------------------------------------------------------------------------" << endl;
 }
 
 void CoreLogic::preOrderSearch(int *randomIds, TreeNode *node)
@@ -319,5 +317,41 @@ void CoreLogic::preOrderSearch(int *randomIds, TreeNode *node)
         }
         this->preOrderSearch(randomIds, node->getLson());
         this->preOrderSearch(randomIds, node->getRson());
+    }
+}
+
+void CoreLogic::phoneId100(int maxId)
+{
+    int id = rand() % maxId + 1;
+    cout << "\tThe id selected is: " << id << endl;
+    TreeNode *idNode = this->preOrderSearchId(id, this->userTree.getRoot());
+    cout << "\tThe tree in preorder criteria is: " << endl;
+    this->preorderPrint(idNode, 0);
+}
+
+TreeNode *CoreLogic::preOrderSearchId(int id, TreeNode *node)
+{
+    if (node != nullptr)
+    {
+        if (node->getUser().getID() == id)
+        {
+            return node;
+        }
+        preOrderSearchId(id, node->getLson());
+        preOrderSearchId(id, node->getRson());
+    }
+    return nullptr;
+}
+
+void CoreLogic::preorderPrint(TreeNode *node, int counter)
+{
+    if (counter < 100 || node != nullptr)
+    {
+        node->getUser().showData();
+        cout << "--------------------" << endl;
+        counter++; //Puede que se haya que mover
+        this->preorderPrint(node->getLson(), counter);
+        //aqui otro
+        this->preorderPrint(node->getRson(), counter);
     }
 }

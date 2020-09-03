@@ -73,15 +73,15 @@ void Interface::startInterface()
             }
             break;
         }
-
         case 'C':
         {
+            
+
             break;
         }
         case 'D':
         {
-            cout << "\n\tThe ids generated are: \n"
-                 << endl;
+            cout << "\n\tThe ids generated are: \n";
             int *ids = coreLogic.generateRandomIds(aux[0]);
             for (int i = 0; i < 100; i++) //Corregir
             {
@@ -90,6 +90,11 @@ void Interface::startInterface()
             coreLogic.stackSearch(ids);
             coreLogic.listSearch(ids);
             coreLogic.treeSearch(ids);
+            break;
+        }
+        case 'E':
+        {
+
             break;
         }
         case 'S':
