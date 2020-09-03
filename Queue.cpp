@@ -35,7 +35,7 @@ void Queue::Enqueue(char elem) //Inserts a new element in the queue, at the rear
 char Queue::Dequeue() // Removes the element at the front of the queue and returns it. This method will return null if the queue is empty.
 {
     QueueNode *removed = this->front;
-    char obtained = NULL;
+    char obtained;
 
     if (this->front != NULL)
     {

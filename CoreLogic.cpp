@@ -265,7 +265,7 @@ void CoreLogic::stackSearch(int *randomIds)
         if (this->isInTheArray(user.getID(), randomIds)) //If we find all the id
         {
             matchCounter++;
-            cout << "\tUser (id): " << user.getID() << endl;
+            cout << "\tUser(id): " << user.getID() << endl;
         }
     }
     auto end = chrono::steady_clock::now();
@@ -288,7 +288,7 @@ void CoreLogic::listSearch(int *randomIds)
         if (this->isInTheArray(user.getID(), randomIds)) //If we find the id in this position
         {
             matchCounter++;
-            cout << "\tUser (id): " << user.getID() << endl;
+            cout << "\tUser(id): " << user.getID() << endl;
         }
         posList++;
     }
@@ -300,13 +300,13 @@ void CoreLogic::listSearch(int *randomIds)
 
 void CoreLogic::treeSearch(int *randomIds)
 {
-    cout << "\n\t++++++++++++++ Start the search in the tree ++++++++++++++" << endl;
+    cout << "\n\t++++++++++++++ Start the search in the tree ++++++++++++++\n" << endl;
     auto start = chrono::steady_clock::now();
     TreeNode *aux = this->userTree.getRoot();
     this->preOrderSearch(randomIds, aux);
     auto end = chrono::steady_clock::now();
     cout << "\n\tThe elapsed time to find the ids in the tree: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " miliseconds" << endl;
-    cout << "\n\t-----------------------------------------------------------------------------" << endl;
+    cout << "\n\t-----------------------------------------------------------------------------\n" << endl;
 }
 
 void CoreLogic::preOrderSearch(int *randomIds, TreeNode *node)
@@ -315,7 +315,7 @@ void CoreLogic::preOrderSearch(int *randomIds, TreeNode *node)
     {
         if (this->isInTheArray(node->getUser().getID(), randomIds))
         {
-            cout << "\tUser (id): " << node->getUser().getID() << endl;
+            cout << "\tUser(id): " << node->getUser().getID() << endl;
         }
         this->preOrderSearch(randomIds, node->getLson());
         this->preOrderSearch(randomIds, node->getRson());

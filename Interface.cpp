@@ -76,6 +76,7 @@ void Interface::startInterface()
 
         case 'C':
         {
+            break;
         }
         case 'D':
         {
