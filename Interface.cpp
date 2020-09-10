@@ -75,8 +75,7 @@ void Interface::startInterface()
         }
         case 'C':
         {
-            
-
+			coreLogic.phoneId100(aux[0]);
             break;
         }
         case 'D':
@@ -94,7 +93,7 @@ void Interface::startInterface()
         }
         case 'E':
         {
-			coreLogic.phoneId100(aux[0]);
+			coreLogic.printing555();
             break;
         }
         case 'S':

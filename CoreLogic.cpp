@@ -207,9 +207,9 @@ User CoreLogic::findPhoneNumber(int phoneToF, int lenDigi) //Finds the first num
 bool CoreLogic::theyAreEqual(int phoneToF, int phoneU) //Checks if two given numbers are equal || phoneU >= phoneToF (always)
 {
     bool coincidence = true;
-    string phoneToFS = to_string(phoneToF);
-    string phoneUS = to_string(phoneU);
-    int lenPhoneToF = phoneToFS.length();
+    string phoneToFStr = to_string(phoneToF);
+    string phoneUStr = to_string(phoneU);
+    int lenPhoneToF = phoneToFStr.length();
     if (phoneToF == phoneU)
     {
         coincidence = true;
@@ -218,9 +218,7 @@ bool CoreLogic::theyAreEqual(int phoneToF, int phoneU) //Checks if two given num
 
     for (int i = 0; i < lenPhoneToF; i++)
     {
-        //cout << "phoneToFS[i] --------------- " << phoneToFS[i] << endl;
-        //cout << "phoneUS[i]   --------------- " << phoneUS[i] << endl;
-        if (phoneToFS[i] != phoneUS[i])
+        if (phoneToFStr[i] != phoneUStr[i])
         {
             coincidence = false;
             break;
@@ -325,25 +323,23 @@ void CoreLogic::phoneId100(int maxId)
     int id = rand() % maxId + 1;
     cout << "\n\tThe id selected is: " << id << endl;
     TreeNode *idNode = this->preOrderSearchId(id, this->userTree.getRoot());
-	idNode->getUser().showData();
+    idNode->getUser().showData();
     cout << "\tThe tree in preorder criteria is: " << endl;
     //this->preorderPrint(idNode, 0);
 }
 
 TreeNode *CoreLogic::preOrderSearchId(int id, TreeNode *node)
 {
-	cout<<id;
-	cout<<node->getUser().getID();
     if (node != nullptr)
     {
         if (node->getUser().getID() == id)
         {
+            node->getUser().showData();
             return node;
         }
         preOrderSearchId(id, node->getLson());
         preOrderSearchId(id, node->getRson());
     }
-    return node;
 }
 
 void CoreLogic::preorderPrint(TreeNode *node, int counter)
@@ -356,5 +352,40 @@ void CoreLogic::preorderPrint(TreeNode *node, int counter)
         this->preorderPrint(node->getLson(), counter);
         //aqui otro
         this->preorderPrint(node->getRson(), counter);
+    }
+}
+
+void CoreLogic::printing555()
+{
+    Stack auxStack = this->phones555;
+    TreeNode *auxTree = this->userTree.getRoot();
+
+    auto start = chrono::steady_clock::now();
+    while (!auxStack.isEmpty())
+    {
+        User u = auxStack.Pop();
+        cout << "\tUser(id): " << u.getID() << endl;
+    }
+    auto end = chrono::steady_clock::now();
+    cout << "\n\tThe elapsed time to print the stack numbers is: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " miliseconds" << endl;
+    cout << "\n\t-----------------------------------------------------------------------------" << endl;
+
+    auto start = chrono::steady_clock::now();
+    this->preOrderSearch555(auxTree);
+    auto end = chrono::steady_clock::now();
+    cout << "\n\tThe elapsed time to find the 555 numbers in the tree is: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " miliseconds" << endl;
+    cout << "\n\t-----------------------------------------------------------------------------" << endl;
+}
+
+void CoreLogic::preOrderSearch555(TreeNode *node)
+{
+    if (node != nullptr)
+    {
+        if (theyAreEqual(555, node->getUser().getPhoneNumber()))
+        {
+            cout << "\tUser(id): " << node->getUser().getID() << endl;
+        }
+        this->preOrderSearch555(node->getLson());
+        this->preOrderSearch555(node->getRson());
     }
 }

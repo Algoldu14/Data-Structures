@@ -44,6 +44,8 @@ public:
     void phoneId100(int maxId);
     TreeNode *preOrderSearchId(int id, TreeNode *node);
     void preorderPrint(TreeNode* node, int counter);
+    void printing555();
+    void preOrderSearch555(TreeNode* node);
 };
 
 #endif // CORELOGIC_H
