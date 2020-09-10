@@ -52,10 +52,9 @@ void Interface::startInterface()
             counter = 0;
             if (phoneNumber > 1 && phoneNumber < 999999999) //If the number is between the correct values
             {
-				counter = 9 - phoneNumberStr.length();
-                cout << "phoneNUmber: " << phoneNumber << " | counter: " << counter << endl;
+				counter = 9 - phoneNumberStr.length(); //The number of zeros needed to complete the phone number
+                //cout << "phoneNUmber: " << phoneNumber << " | counter: " << counter << endl;
                 User user = coreLogic.findPhoneNumber(phoneNumber, counter);
- 
                 cout << "\n\tThe first room with the given number or similar is: " << user.getRoom() << " and his phone is: " << user.getPhoneNumber() << endl;
             }
             else

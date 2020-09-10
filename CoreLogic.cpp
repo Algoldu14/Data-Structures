@@ -104,37 +104,28 @@ int *CoreLogic::generateUsers()
         for (int i = 0; i < 9; i++)
         {
             int phoneD = rand() % 9 + 1;
-            //cout << "Digit:" << phoneD << endl;
             phoneN += phoneD * digit;
-            //cout << "Phone building: " << phoneN << endl;
             digit *= 10;
         }
-        //cout << "---------------------------" << endl;
         digit = 1;
         newU.setID(i);
         newU.setPhoneNumber(phoneN);
         newU.setRoom(this->MMR());
-        //newU.showData();
 
         this->userTree.insert(this->userTree.getRoot(), newU); //Insert the node in the TREE
         this->allPhones.Push(newU);                            //Push for the exercise 4 STACK
         this->listPhones.Insert(newU, i);                      //Insert for the exercise 4 LIST
         int first3 = (int)(phoneN / 1000000);                  //Take the first 3 digits of the phone number
-        //cout << "First three digits: " << first3 << endl;
         if (first3 == 555)
         {
             this->phones555.Push(newU);
             phone555Counter++;
-            //cout << "555 cont: " << phone555Counter << endl;
             cout << "\tPhone555: " << phoneN << endl;
         }
         userCounter++;
     }
-
     retunArr[0] = userCounter;
-    //cout << "User created: " << retunArr[0] << endl;
     retunArr[1] = phone555Counter;
-    //cout << "555 cont: " << retunArr[1] << endl;
     return retunArr;
 }
 
@@ -143,29 +134,20 @@ User CoreLogic::findPhoneNumber(int phoneToF, int lenDigi) //Finds the first num
     bool finding = true;
     TreeNode *aux = nullptr;
     aux = this->userTree.getRoot();
-    //cout << "phoneToF before While: " << phoneToF << endl;
     while (finding)
     {
-        //cout << "phoneToF While: " << phoneToF << endl;
-        //cout << "phoneToF: " << phoneToF <<"aux->getUser().getPhoneNumber(): "<<aux->getUser().getPhoneNumber()<<endl;
         if (this->theyAreEqual(phoneToF, aux->getUser().getPhoneNumber())) //If they are equal
         {
-            //cout << "The phone that matches first is: " << aux->getUser().getPhoneNumber() << endl;
-            //cout << "Finded: " << aux->getUser().getPhoneNumber() << " = " << phoneToF << endl;
             return aux->getUser(); //We return the room where the match is maked
         }
         else
         {
-            //cout << "phoneToF before for ----------------: " << phoneToF << endl;
             for (int i = 0; i < lenDigi; i++)
             {
                 phoneToF = phoneToF * 10; //Create the complete phone number
-                //cout << "phoneToF meanwhile for ----------------: " << phoneToF << endl;
             }
-            //cout << "phoneToF after the for: " << phoneToF << endl;
             if (aux->getUser().getPhoneNumber() - phoneToF > 0)
             {
-                //cout << "aux->getUser().getPhoneNumber() - phoneToF > 0: " << endl;
                 if (this->userTree.getSon(aux, 0) != nullptr)
                 {
                     aux = this->userTree.getSon(aux, 0); //We get the Lson
@@ -174,7 +156,6 @@ User CoreLogic::findPhoneNumber(int phoneToF, int lenDigi) //Finds the first num
                     {
                         phoneToF = phoneToF / 10; //Reset the phone number
                     }
-                    //cout << "phoneToF Reseted Lson: " << phoneToF << endl;
                 }
                 else
                 {
@@ -183,16 +164,13 @@ User CoreLogic::findPhoneNumber(int phoneToF, int lenDigi) //Finds the first num
             }
             else
             {
-                //cout << "aux->getUser().getPhoneNumber() - phoneToF < 0: " << endl;
                 if (this->userTree.getSon(aux, 1) != nullptr)
                 {
                     aux = this->userTree.getSon(aux, 1); //We get the Rson
-
                     for (int i = 0; i < lenDigi; i++)
                     {
                         phoneToF = phoneToF / 10; //Reset the phone number
                     }
-                    //cout << "phoneToF Reseted Rson: " << phoneToF << endl;
                 }
                 else
                 {
@@ -218,8 +196,6 @@ bool CoreLogic::theyAreEqual(int phoneToF, int phoneU) //Checks if two given num
 
     for (int i = 0; i < lenPhoneToF; i++)
     {
-		//cout << "phoneToFS[i] --------------- " << phoneToFStr[i] << endl;
-        //cout << "phoneUS[i]   --------------- " << phoneUStr[i] << endl;
         if (phoneToFStr[i] != phoneUStr[i])
         {
             coincidence = false;
