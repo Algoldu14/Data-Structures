@@ -157,7 +157,7 @@ User CoreLogic::findPhoneNumber(int phoneToF, int lenDigi) //Finds the first num
         else
         {
             //cout << "phoneToF before for ----------------: " << phoneToF << endl;
-            for (int i = 0; i < lenDigi - 1; i++)
+            for (int i = 0; i < lenDigi; i++)
             {
                 phoneToF = phoneToF * 10; //Create the complete phone number
                 //cout << "phoneToF meanwhile for ----------------: " << phoneToF << endl;
@@ -170,7 +170,7 @@ User CoreLogic::findPhoneNumber(int phoneToF, int lenDigi) //Finds the first num
                 {
                     aux = this->userTree.getSon(aux, 0); //We get the Lson
 
-                    for (int i = 0; i < lenDigi - 1; i++)
+                    for (int i = 0; i < lenDigi; i++)
                     {
                         phoneToF = phoneToF / 10; //Reset the phone number
                     }
@@ -188,7 +188,7 @@ User CoreLogic::findPhoneNumber(int phoneToF, int lenDigi) //Finds the first num
                 {
                     aux = this->userTree.getSon(aux, 1); //We get the Rson
 
-                    for (int i = 0; i < lenDigi - 1; i++)
+                    for (int i = 0; i < lenDigi; i++)
                     {
                         phoneToF = phoneToF / 10; //Reset the phone number
                     }
@@ -218,6 +218,8 @@ bool CoreLogic::theyAreEqual(int phoneToF, int phoneU) //Checks if two given num
 
     for (int i = 0; i < lenPhoneToF; i++)
     {
+		//cout << "phoneToFS[i] --------------- " << phoneToFStr[i] << endl;
+        //cout << "phoneUS[i]   --------------- " << phoneUStr[i] << endl;
         if (phoneToFStr[i] != phoneUStr[i])
         {
             coincidence = false;
@@ -322,10 +324,11 @@ void CoreLogic::phoneId100(int maxId)
 {
     int id = rand() % maxId + 1;
     cout << "\n\tThe id selected is: " << id << endl;
-    TreeNode *idNode = this->preOrderSearchId(id, this->userTree.getRoot());
+    TreeNode *idNode = nullptr;
+	idNode = this->preOrderSearchId(id, this->userTree.getRoot());
     idNode->getUser().showData();
     cout << "\tThe tree in preorder criteria is: " << endl;
-    //this->preorderPrint(idNode, 0);
+    this->preorderPrint(idNode, 0);
 }
 
 TreeNode *CoreLogic::preOrderSearchId(int id, TreeNode *node)
@@ -360,21 +363,21 @@ void CoreLogic::printing555()
     Stack auxStack = this->phones555;
     TreeNode *auxTree = this->userTree.getRoot();
 
-    auto start = chrono::steady_clock::now();
+    auto start1 = chrono::steady_clock::now();
     while (!auxStack.isEmpty())
     {
         User u = auxStack.Pop();
         cout << "\tUser(id): " << u.getID() << endl;
     }
-    auto end = chrono::steady_clock::now();
-    cout << "\n\tThe elapsed time to print the stack numbers is: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " miliseconds" << endl;
-    cout << "\n\t-----------------------------------------------------------------------------" << endl;
+    auto end1 = chrono::steady_clock::now();
+    cout << "\n\tThe elapsed time to print the stack numbers is: " << chrono::duration_cast<chrono::milliseconds>(end1 - start1).count() << " miliseconds" << endl;
+    cout << "\n\t-----------------------------------------------------------------------------\n" << endl;
 
-    auto start = chrono::steady_clock::now();
+    auto start2 = chrono::steady_clock::now();
     this->preOrderSearch555(auxTree);
-    auto end = chrono::steady_clock::now();
-    cout << "\n\tThe elapsed time to find the 555 numbers in the tree is: " << chrono::duration_cast<chrono::milliseconds>(end - start).count() << " miliseconds" << endl;
-    cout << "\n\t-----------------------------------------------------------------------------" << endl;
+    auto end2 = chrono::steady_clock::now();
+    cout << "\n\tThe elapsed time to find the 555 numbers in the tree is: " << chrono::duration_cast<chrono::milliseconds>(end2 - start2).count() << " miliseconds" << endl;
+    cout << "\n\t-----------------------------------------------------------------------------\n" << endl;
 }
 
 void CoreLogic::preOrderSearch555(TreeNode *node)
