@@ -16,7 +16,6 @@ public:
     Tree(); //Dummy constructor
     ~Tree();
 
-    void postOrder(TreeNode *b);
     TreeNode *getRoot();
     void setRoot(TreeNode *root);
     TreeNode *getSon(TreeNode *b, int a);

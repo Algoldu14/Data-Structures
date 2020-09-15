@@ -204,6 +204,40 @@ bool CoreLogic::theyAreEqual(int phoneToF, int phoneU) //Checks if two given num
     }
     return coincidence;
 }
+void CoreLogic::phoneId100(int maxId)
+{
+    int id = rand() % maxId + 1;
+    cout << "\n\tThe id selected is: " << id << endl;
+    this->preOrderSearchId(id, this->userTree.getRoot());
+    
+}
+
+void CoreLogic::preOrderSearchId(int id, TreeNode *node)
+{
+    if (node != nullptr)
+    {
+        if (node->getUser().getID() == id)
+        {
+			cout << "\tThe tree in preorder criteria is: \n" << endl;
+			this->preorderPrint(node, 0);
+        }
+		preOrderSearchId(id, node->getLson());
+		preOrderSearchId(id, node->getRson());
+    }
+}
+
+void CoreLogic::preorderPrint(TreeNode *node, int counter)
+{
+    if (counter < 100 && node != nullptr)
+    {
+        node->getUser().showData();
+        cout << "\t--------------------" << endl;
+        this->preorderPrint(node->getLson(), counter);
+		counter++;
+        this->preorderPrint(node->getRson(), counter);
+		counter++;
+    }
+}
 
 int *CoreLogic::generateRandomIds(int range) //Generates the random ids for the shearch
 {
@@ -296,43 +330,7 @@ void CoreLogic::preOrderSearch(int *randomIds, TreeNode *node)
     }
 }
 
-void CoreLogic::phoneId100(int maxId)
-{
-    int id = rand() % maxId + 1;
-    cout << "\n\tThe id selected is: " << id << endl;
-    TreeNode *idNode = nullptr;
-	idNode = this->preOrderSearchId(id, this->userTree.getRoot());
-    idNode->getUser().showData();
-    cout << "\tThe tree in preorder criteria is: " << endl;
-    this->preorderPrint(idNode, 0);
-}
 
-TreeNode *CoreLogic::preOrderSearchId(int id, TreeNode *node)
-{
-    if (node != nullptr)
-    {
-        if (node->getUser().getID() == id)
-        {
-            node->getUser().showData();
-            return node;
-        }
-        preOrderSearchId(id, node->getLson());
-        preOrderSearchId(id, node->getRson());
-    }
-}
-
-void CoreLogic::preorderPrint(TreeNode *node, int counter)
-{
-    if (counter < 100 || node != nullptr)
-    {
-        node->getUser().showData();
-        cout << "--------------------" << endl;
-        counter++; //Puede que se haya que mover
-        this->preorderPrint(node->getLson(), counter);
-        //aqui otro
-        this->preorderPrint(node->getRson(), counter);
-    }
-}
 
 void CoreLogic::printing555()
 {

@@ -19,10 +19,6 @@ private:
     Stack phones555, allPhones;
     List listPhones;
 
-    friend class Queue;
-    friend class Stack;
-    friend class User;
-    friend class List;
 
 public:
     //Cosntructor and destructor
@@ -31,8 +27,8 @@ public:
 
     //Methods
     void createQMMR();
-    char MMR();           //The algorithm to assing a new user room
-    int *generateUsers(); //Option A in the simulation
+    char MMR();          
+    int *generateUsers(); 
     User findPhoneNumber(int phoneToF, int lenDigi);
     bool theyAreEqual(int phoneN, int phoneU);
     int *generateRandomIds(int range);
@@ -42,7 +38,7 @@ public:
     void treeSearch(int *randomIds);
     void preOrderSearch(int *randomIds, TreeNode *node);
     void phoneId100(int maxId);
-    TreeNode *preOrderSearchId(int id, TreeNode *node);
+    void preOrderSearchId(int id, TreeNode *node);
     void preorderPrint(TreeNode* node, int counter);
     void printing555();
     void preOrderSearch555(TreeNode* node);

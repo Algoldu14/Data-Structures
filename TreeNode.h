@@ -9,7 +9,7 @@
 class TreeNode
 {
 private:
-	User user;
+	User user; 
 	//Left and Right son:
 	TreeNode *Lson;
 	TreeNode *Rson;
