@@ -52,7 +52,7 @@ void Interface::startInterface()
             counter = 0;
             if (phoneNumber > 1 && phoneNumber < 999999999) //If the number is between the correct values
             {
-				counter = 9 - phoneNumberStr.length(); //The number of zeros needed to complete the phone number
+                counter = 9 - phoneNumberStr.length(); //The number of zeros needed to complete the phone number
                 //cout << "phoneNUmber: " << phoneNumber << " | counter: " << counter << endl;
                 User user = coreLogic.findPhoneNumber(phoneNumber, counter);
                 cout << "\n\tThe first room with the given number or similar is: " << user.getRoom() << " and his phone is: " << user.getPhoneNumber() << endl;
@@ -65,16 +65,16 @@ void Interface::startInterface()
         }
         case 'C':
         {
-			coreLogic.phoneId100(aux[0]);
+            coreLogic.phoneId100(aux[0]);
             break;
         }
         case 'D':
         {
             cout << "\n\tThe ids generated are: \n";
             int *ids = coreLogic.generateRandomIds(aux[0]);
-            for (int i = 0; i < 100; i++) //Corregir
+            for (int i = 0; i < 100; i++) 
             {
-                cout << "\tID number: " << i << " number: " << ids[i] << endl;
+                cout << "\tID number: " << i << " -> " << ids[i] << endl;
             }
             coreLogic.stackSearch(ids);
             coreLogic.listSearch(ids);
@@ -83,7 +83,7 @@ void Interface::startInterface()
         }
         case 'E':
         {
-			coreLogic.printing555();
+            coreLogic.printing555();
             break;
         }
         case 'S':

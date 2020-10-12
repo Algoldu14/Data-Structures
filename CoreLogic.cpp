@@ -209,7 +209,6 @@ void CoreLogic::phoneId100(int maxId)
     int id = rand() % maxId + 1;
     cout << "\n\tThe id selected is: " << id << endl;
     this->preOrderSearchId(id, this->userTree.getRoot());
-    
 }
 
 void CoreLogic::preOrderSearchId(int id, TreeNode *node)
@@ -218,11 +217,15 @@ void CoreLogic::preOrderSearchId(int id, TreeNode *node)
     {
         if (node->getUser().getID() == id)
         {
-			cout << "\tThe tree in preorder criteria is: \n" << endl;
-			this->preorderPrint(node, 0);
+            cout << "\tThe tree in preorder criteria is: " << endl;
+            this->preorderPrint(node, 0);
         }
-		preOrderSearchId(id, node->getLson());
-		preOrderSearchId(id, node->getRson());
+		else
+		{
+			preOrderSearchId(id, node->getLson());
+			preOrderSearchId(id, node->getRson());
+		}
+        
     }
 }
 
@@ -233,9 +236,9 @@ void CoreLogic::preorderPrint(TreeNode *node, int counter)
         node->getUser().showData();
         cout << "\t--------------------" << endl;
         this->preorderPrint(node->getLson(), counter);
-		counter++;
+        counter++;
         this->preorderPrint(node->getRson(), counter);
-		counter++;
+        counter++;
     }
 }
 
@@ -330,8 +333,6 @@ void CoreLogic::preOrderSearch(int *randomIds, TreeNode *node)
     }
 }
 
-
-
 void CoreLogic::printing555()
 {
     Stack auxStack = this->phones555;
@@ -345,13 +346,13 @@ void CoreLogic::printing555()
     }
     auto end1 = chrono::steady_clock::now();
     cout << "\n\tThe elapsed time to print the stack numbers is: " << chrono::duration_cast<chrono::milliseconds>(end1 - start1).count() << " miliseconds" << endl;
-    cout << "\n\t-----------------------------------------------------------------------------\n" << endl;
+    cout << "\n\t-----------------------------------------------------------------------------\n"<< endl;
 
     auto start2 = chrono::steady_clock::now();
     this->preOrderSearch555(auxTree);
     auto end2 = chrono::steady_clock::now();
     cout << "\n\tThe elapsed time to find the 555 numbers in the tree is: " << chrono::duration_cast<chrono::milliseconds>(end2 - start2).count() << " miliseconds" << endl;
-    cout << "\n\t-----------------------------------------------------------------------------\n" << endl;
+    cout << "\n\t-----------------------------------------------------------------------------\n"<< endl;
 }
 
 void CoreLogic::preOrderSearch555(TreeNode *node)

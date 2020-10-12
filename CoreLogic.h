@@ -19,7 +19,6 @@ private:
     Stack phones555, allPhones;
     List listPhones;
 
-
 public:
     //Cosntructor and destructor
     CoreLogic();
@@ -27,8 +26,8 @@ public:
 
     //Methods
     void createQMMR();
-    char MMR();          
-    int *generateUsers(); 
+    char MMR();
+    int *generateUsers();
     User findPhoneNumber(int phoneToF, int lenDigi);
     bool theyAreEqual(int phoneN, int phoneU);
     int *generateRandomIds(int range);
@@ -39,9 +38,9 @@ public:
     void preOrderSearch(int *randomIds, TreeNode *node);
     void phoneId100(int maxId);
     void preOrderSearchId(int id, TreeNode *node);
-    void preorderPrint(TreeNode* node, int counter);
+    void preorderPrint(TreeNode *node, int counter);
     void printing555();
-    void preOrderSearch555(TreeNode* node);
+    void preOrderSearch555(TreeNode *node);
 };
 
 #endif // CORELOGIC_H
